@@ -1,0 +1,895 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Manuel de mathématiques pour la Terminale S : cours illustré, méthodes, plus de 300 exercices gradués et les sujets officiels du Bacc Série S 2021 à 2026. Conforme au programme officiel malgache.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:site_name" content="Le Repère">
+<meta property="og:title" content="Le Repère · Mathématiques Terminale S">
+<meta property="og:description" content="Manuel de mathématiques pour la Terminale S : cours illustré, méthodes, plus de 300 exercices gradués et les sujets officiels du Bacc Série S 2021 à 2026. Conforme au programme officiel malgache.">
+<meta property="og:url" content="https://amamiarilala-svg.github.io/le-repere/">
+<meta property="og:image" content="https://amamiarilala-svg.github.io/le-repere/assets/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Couverture du livre Le Repère, Mathématiques Terminale S">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://amamiarilala-svg.github.io/le-repere/">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<style>img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Le Repère · Mathématiques Terminale S</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Archivo:wght@400;500;600;700&family=STIX+Two+Text:ital,wght@1,400;1,600&display=swap">
+<style>
+/* Mise en page : un repère. Bandeau noir de la couverture en tête, puis papier quadrillé
+   où chaque section est un « objet » posé sur la grille ; violet = couleur des courbes. */
+:root {
+  --paper: #fafbf6;
+  --paper-2: #f0f1ea;
+  --ink: #111111;
+  --ink-2: #4c4e47;
+  --rule: #dcddd4;
+  --grid: rgba(17, 17, 17, .05);
+  --violet: #9998fe;
+  --violet-ink: #4c45c4;
+  --violet-wash: #ecebff;
+  --band: #111111;
+  --band-ink: #fafbf6;
+  --band-ink-2: #a9aaa2;
+  --good: #1f7a4a;
+  --bad: #b3372b;
+
+  --f-display: "Young Serif", "Iowan Old Style", Georgia, serif;
+  --f-body: "Archivo", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  --f-math: "STIX Two Text", "Cambria Math", "Times New Roman", serif;
+
+  --s-1: .8125rem; --s0: 1rem; --s1: 1.1875rem; --s2: 1.5rem; --s3: 2.125rem; --s4: 3rem; --s5: clamp(3.25rem, 9vw, 6.25rem);
+  --wrap: 1120px;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --paper: #151613; --paper-2: #1d1e1a; --ink: #eff0ea; --ink-2: #a8aaa0; --rule: #31322d;
+  --grid: rgba(239, 240, 234, .045); --violet: #a6a5ff; --violet-ink: #b4b3ff; --violet-wash: #26254a;
+  --band: #0b0b0a; --band-ink: #f4f5ef; --band-ink-2: #9b9d95; --good: #5fc68f; --bad: #f08a7e;
+  color-scheme: dark;
+} }
+:root[data-theme="dark"] {
+  --paper: #151613; --paper-2: #1d1e1a; --ink: #eff0ea; --ink-2: #a8aaa0; --rule: #31322d;
+  --grid: rgba(239, 240, 234, .045); --violet: #a6a5ff; --violet-ink: #b4b3ff; --violet-wash: #26254a;
+  --band: #0b0b0a; --band-ink: #f4f5ef; --band-ink-2: #9b9d95; --good: #5fc68f; --bad: #f08a7e;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { transition: none !important; animation: none !important; } }
+body {
+  margin: 0; background: var(--paper); color: var(--ink);
+  font: 400 var(--s0)/1.6 var(--f-body);
+  -webkit-font-smoothing: antialiased;
+}
+.wrap { max-width: var(--wrap); margin-inline: auto; padding-inline: 20px; }
+.m { font-family: var(--f-math); font-style: italic; font-size: 1.06em; letter-spacing: .01em; }
+h1, h2, h3 { font-family: var(--f-display); font-weight: 400; line-height: 1.08; text-wrap: balance; margin: 0; }
+a { color: var(--violet-ink); }
+:focus-visible { outline: 2px solid var(--violet); outline-offset: 3px; border-radius: 4px; }
+.label { font-size: var(--s-1); font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--ink-2); margin: 0; }
+.tnum { font-variant-numeric: tabular-nums; }
+
+/* ── Bandeau ─────────────────────────────── */
+.band { background: var(--band); color: var(--band-ink); }
+.topbar { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20; background: var(--band); border-bottom: 1px solid rgba(255,255,255,.08); }
+.topbar .wrap { display: flex; align-items: center; gap: 24px; min-height: 60px; }
+.brand { display: flex; align-items: center; gap: 10px; color: var(--band-ink); text-decoration: none; font-family: var(--f-display); font-size: var(--s1); }
+.brand svg { flex: none; }
+.nav { display: flex; gap: 22px; margin-left: auto; }
+.nav a { color: var(--band-ink-2); text-decoration: none; font-size: .9375rem; font-weight: 500; }
+.nav a:hover { color: var(--band-ink); }
+@media (max-width: 760px) { .nav a:not(.nav-key) { display: none; } }
+.nav-key { color: var(--band) !important; background: var(--violet); padding: 6px 14px; border-radius: 999px; }
+
+.hero .wrap { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, .75fr); gap: 48px; align-items: center; padding-block: 64px 72px; }
+@media (max-width: 860px) { .hero .wrap { grid-template-columns: minmax(0, 1fr); gap: 40px; padding-block: 44px 52px; } }
+.eyebrow { font-size: var(--s-1); font-weight: 700; letter-spacing: .32em; color: var(--band-ink-2); margin: 0 0 14px; }
+.hero h1 { font-size: var(--s5); letter-spacing: -.01em; }
+.hero-line { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 16px; margin: 22px 0 26px; }
+.pill { background: var(--violet); color: #111; font-weight: 700; padding: 6px 16px; border-radius: 6px; font-size: var(--s1); }
+.hero-line span:last-child { color: var(--band-ink-2); font-size: .9375rem; }
+.lead { font-size: var(--s1); line-height: 1.55; max-width: 34em; color: var(--band-ink); margin: 0; opacity: .92; }
+.lead .m { color: var(--violet); }
+.cta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
+.btn { display: inline-flex; align-items: center; gap: 8px; padding: 12px 20px; border-radius: 999px; font-weight: 600; text-decoration: none; font-size: .9375rem; transition: transform .15s ease, background .15s ease; }
+.btn:hover { transform: translateY(-1px); }
+.btn-a { background: var(--band-ink); color: var(--band); }
+.btn-b { color: var(--band-ink); border: 1px solid rgba(255,255,255,.28); }
+.btn-b:hover { background: rgba(255,255,255,.07); }
+
+.cover { position: relative; justify-self: center; width: min(100%, 330px); }
+.cover img { display: block; width: 100%; height: auto; border-radius: 4px 10px 10px 4px; box-shadow: 0 30px 60px -20px rgba(0,0,0,.7), 0 0 0 1px rgba(255,255,255,.06); transform: rotate(-2.5deg); }
+.cover::before { content: ""; position: absolute; inset: 6% -6% -4% 8%; background: var(--violet); opacity: .18; border-radius: 12px; transform: rotate(3deg); z-index: -1; }
+.cover { isolation: isolate; }
+.seal { position: absolute; top: -18px; right: -14px; width: 108px; height: 108px; border-radius: 50%; background: var(--band-ink); color: var(--band); display: grid; place-items: center; text-align: center; font-size: .6875rem; line-height: 1.25; transform: rotate(8deg); box-shadow: 0 8px 20px rgba(0,0,0,.35); padding: 10px; }
+.seal b { display: block; font-size: .8125rem; letter-spacing: .08em; }
+@media (max-width: 860px) { .cover { width: min(70%, 280px); } .seal { width: 92px; height: 92px; right: -24px; } }
+
+/* ── Grandeurs ───────────────────────────── */
+.ledger { border-bottom: 1px solid var(--rule); background: var(--paper); }
+.ledger dl { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); margin: 0; }
+.ledger div { display: flex; flex-direction: column; padding: 22px 16px 20px 0; border-right: 1px solid var(--rule); padding-left: 16px; }
+.ledger div:first-child { padding-left: 0; }
+.ledger div:last-child { border-right: 0; }
+.ledger dt { font-size: .875rem; color: var(--ink-2); line-height: 1.35; }
+.ledger dd { order: -1; margin: 0 0 4px; font-family: var(--f-display); font-size: var(--s3); line-height: 1.1; font-variant-numeric: tabular-nums; }
+@media (max-width: 900px) { .ledger dl { grid-template-columns: repeat(3, minmax(0, 1fr)); } .ledger div:nth-child(3) { border-right: 0; } .ledger div:nth-child(4) { padding-left: 0; } .ledger div:nth-child(-n+3) { border-bottom: 1px solid var(--rule); } }
+@media (max-width: 480px) { .ledger dl { grid-template-columns: repeat(2, minmax(0, 1fr)); } .ledger div { padding-left: 14px !important; border-right: 1px solid var(--rule) !important; border-bottom: 1px solid var(--rule); } .ledger div:nth-child(odd) { padding-left: 0 !important; } .ledger div:nth-child(even) { border-right: 0 !important; } .ledger div:nth-last-child(-n+2) { border-bottom: 0; } }
+
+/* ── Sections sur papier quadrillé ───────── */
+.graph { background-color: var(--paper); background-image: linear-gradient(var(--grid) 1px, transparent 1px), linear-gradient(90deg, var(--grid) 1px, transparent 1px); background-size: 24px 24px; }
+section.block { padding-block: 88px; }
+@media (max-width: 700px) { section.block { padding-block: 60px; } }
+.head { display: grid; grid-template-columns: minmax(0, 1fr); gap: 14px; max-width: 46rem; margin-bottom: 40px; }
+.head h2 { font-size: var(--s4); }
+@media (max-width: 600px) { .head h2 { font-size: 2.25rem; } }
+.head p:not(.label) { margin: 0; color: var(--ink-2); font-size: var(--s1); line-height: 1.55; }
+
+/* ── Figure interactive ──────────────────── */
+.fig-grid { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: 28px; align-items: start; }
+@media (max-width: 900px) { .fig-grid { grid-template-columns: minmax(0, 1fr); } }
+.plate { background: var(--paper); border: 1px solid var(--rule); border-radius: 10px; padding: 18px 18px 14px; }
+.plate svg { display: block; width: 100%; height: auto; touch-action: none; cursor: ew-resize; user-select: none; }
+.plate .ax { stroke: var(--ink); stroke-width: 1.4; }
+.plate .tick { stroke: var(--ink); stroke-width: 1; }
+.plate .gl { stroke: var(--rule); stroke-width: 1; }
+.plate .curve { fill: none; stroke: var(--violet-ink); stroke-width: 3; stroke-linecap: round; }
+.plate .tan { stroke: var(--ink-2); stroke-width: 1.6; stroke-dasharray: 7 5; }
+.plate .proj { stroke: var(--ink-2); stroke-width: 1; stroke-dasharray: 3 4; }
+.plate .vec { stroke: var(--ink); stroke-width: 2.2; fill: none; }
+.plate text { fill: var(--ink); font-family: var(--f-math); font-style: italic; font-size: 17px; }
+.plate text.v { fill: var(--violet-ink); font-size: 19px; }
+.plate .pt { fill: var(--ink); }
+.plate .handle { fill: var(--violet); stroke: var(--paper); stroke-width: 3; }
+.slider { display: flex; align-items: center; gap: 14px; margin-top: 10px; }
+.slider label { font-family: var(--f-math); font-style: italic; font-size: 1.15rem; }
+.slider input { flex: 1; min-width: 0; accent-color: var(--violet-ink); }
+.readout { display: grid; gap: 0; border: 1px solid var(--rule); border-radius: 10px; background: var(--paper); overflow: hidden; }
+.readout .row { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; padding: 12px 18px; border-bottom: 1px solid var(--rule); }
+.readout .row span:first-child { color: var(--ink-2); font-size: .9375rem; }
+.readout .row output { font-family: var(--f-math); font-size: 1.25rem; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.readout .verdict { padding: 14px 18px; background: var(--violet-wash); font-size: .9375rem; line-height: 1.5; min-height: 4.6em; }
+.vf { margin-top: 22px; display: grid; gap: 10px; }
+.vf h3 { font-size: var(--s2); margin-bottom: 4px; }
+.vf-item { border: 1px solid var(--rule); border-radius: 10px; background: var(--paper); padding: 14px 16px; }
+.vf-item p { margin: 0; }
+.vf-q { display: flex; flex-wrap: wrap; gap: 10px 14px; align-items: center; justify-content: space-between; }
+.vf-q p { flex: 1 1 16rem; min-width: 0; }
+.vf-btns { display: flex; gap: 6px; }
+.vf-btns button { font: 600 .875rem var(--f-body); padding: 6px 14px; border-radius: 999px; border: 1px solid var(--rule); background: var(--paper-2); color: var(--ink); cursor: pointer; }
+.vf-btns button:hover { border-color: var(--ink-2); }
+.vf-btns button[aria-pressed="true"].ok { background: var(--good); border-color: var(--good); color: var(--paper); }
+.vf-btns button[aria-pressed="true"].ko { background: var(--bad); border-color: var(--bad); color: var(--paper); }
+.vf-why { margin-top: 10px !important; padding-top: 10px; border-top: 1px dashed var(--rule); color: var(--ink-2); font-size: .9375rem; }
+
+/* ── Sommaire ────────────────────────────── */
+.toc { display: grid; gap: 44px; }
+.partie-h { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: baseline; gap: 6px 18px; border-bottom: 2px solid var(--ink); padding-bottom: 10px; }
+.partie-num { font-size: var(--s-1); font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--violet-ink); }
+.partie-h h3 { font-size: var(--s3); }
+.partie-p { font-variant-numeric: tabular-nums; color: var(--ink-2); font-size: .9375rem; }
+.chap { border-bottom: 1px solid var(--rule); background: var(--paper); }
+.chap summary, .chap-link { display: grid; grid-template-columns: 3rem minmax(0, 1fr) auto; grid-template-areas: "n t p" ". s s"; gap: 2px 14px; padding: 16px 4px 14px; cursor: pointer; list-style: none; color: inherit; text-decoration: none; }
+.chap summary::-webkit-details-marker { display: none; }
+.chap summary:hover .chap-t, .chap-link:hover .chap-t { color: var(--violet-ink); }
+.chap-n { grid-area: n; font-family: var(--f-display); font-size: var(--s2); line-height: 1.1; color: var(--violet-ink); font-variant-numeric: tabular-nums; }
+.chap-t { grid-area: t; font-size: var(--s1); font-weight: 600; line-height: 1.3; align-self: center; }
+.chap-p { grid-area: p; font-variant-numeric: tabular-nums; color: var(--ink-2); font-size: .9375rem; align-self: center; white-space: nowrap; }
+.chap-s { grid-area: s; color: var(--ink-2); font-size: .875rem; }
+.chap summary .chap-p::after { content: "+"; display: inline-block; width: 1.4em; text-align: right; font-weight: 600; color: var(--ink); }
+.chap[open] summary .chap-p::after { content: "−"; }
+.chap-body { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr); gap: 24px; padding: 4px 4px 24px calc(3rem + 18px); }
+@media (max-width: 760px) { .chap-body { grid-template-columns: minmax(0, 1fr); padding-left: 4px; } }
+.chap-body blockquote { margin: 0; font-family: var(--f-display); font-size: 1.125rem; line-height: 1.5; border-left: 3px solid var(--violet); padding-left: 16px; }
+.chap-body cite { display: block; margin-top: 8px; font: italic 400 .875rem var(--f-body); color: var(--ink-2); }
+.chap-body cite::before { content: "— "; }
+.obj ul { margin: 8px 0 0; padding-left: 1.1em; display: grid; gap: 6px; }
+.obj li::marker { color: var(--violet-ink); }
+.toc-tools { display: flex; gap: 10px; margin: -20px 0 28px; }
+.toc-tools button { font: 600 .875rem var(--f-body); color: var(--ink); background: var(--paper); border: 1px solid var(--rule); border-radius: 999px; padding: 7px 14px; cursor: pointer; }
+.toc-tools button:hover { border-color: var(--ink-2); }
+
+/* ── Méthode du chapitre ─────────────────── */
+.steps { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); counter-reset: s; border-top: 2px solid var(--ink); }
+.step { padding: 20px 18px 8px 0; position: relative; }
+.step + .step { padding-left: 18px; border-left: 1px solid var(--rule); }
+.step-k { font-family: var(--f-display); font-size: var(--s3); color: var(--violet-ink); line-height: 1; }
+.step h3 { font-family: var(--f-body); font-weight: 700; font-size: var(--s0); margin: 12px 0 6px; line-height: 1.35; }
+.step p { margin: 0; color: var(--ink-2); font-size: .9375rem; line-height: 1.55; }
+@media (max-width: 900px) { .steps { grid-template-columns: minmax(0, 1fr); } .step, .step + .step { padding: 18px 0; border-left: 0; border-bottom: 1px solid var(--rule); display: grid; grid-template-columns: 3.5rem minmax(0, 1fr); column-gap: 8px; } .step h3 { margin-top: 0; } .step p { grid-column: 2; } .step-k { grid-row: span 2; } }
+.stars { color: var(--violet-ink); letter-spacing: .08em; }
+.boxes { margin-top: 48px; display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 15rem), 1fr)); gap: 14px; }
+.box { background: var(--paper); border: 1px solid var(--rule); border-radius: 8px; overflow: hidden; }
+.box-h { font-size: .8125rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; padding: 8px 14px; background: var(--ink); color: var(--paper); }
+.box-h.v { background: var(--violet); color: #111; }
+.box-h.o { background: var(--paper-2); color: var(--ink); border-bottom: 1px solid var(--rule); }
+.box p { margin: 0; padding: 12px 14px 14px; font-size: .9375rem; line-height: 1.5; color: var(--ink-2); }
+
+/* ── Aperçu ──────────────────────────────── */
+.strip { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(220px, 1fr); gap: 22px; overflow-x: auto; padding: 6px 4px 18px; scroll-snap-type: x mandatory; }
+.spec { margin: 0; scroll-snap-align: start; display: grid; gap: 12px; align-content: start; }
+.spec-btn { display: block; padding: 0; border: 0; background: none; cursor: zoom-in; border-radius: 3px; }
+.spec img { display: block; width: 100%; height: auto; aspect-ratio: 641 / 910; border-radius: 3px; box-shadow: 0 1px 0 var(--rule), 0 14px 28px -16px rgba(0,0,0,.35); background: #fff; transition: transform .2s ease; }
+.spec-btn:hover img { transform: translateY(-4px); }
+.spec figcaption { font-size: .875rem; line-height: 1.45; color: var(--ink-2); }
+.spec figcaption strong { color: var(--ink); font-weight: 600; }
+.spec-p { font-variant-numeric: tabular-nums; color: var(--violet-ink); font-weight: 700; }
+.note { margin-top: 10px; font-size: .875rem; color: var(--ink-2); }
+dialog.lb { border: 0; padding: 0; background: transparent; max-width: min(92vw, 700px); max-height: 94vh; }
+dialog.lb::backdrop { background: rgba(10,10,10,.82); }
+dialog.lb img { display: block; max-width: 100%; max-height: 86vh; width: auto; height: auto; margin-inline: auto; border-radius: 3px; background: #fff; }
+.lb-bar { display: flex; justify-content: space-between; gap: 12px; align-items: center; margin-top: 10px; color: #f4f5ef; font-size: .875rem; }
+.lb-bar button { font: 600 .875rem var(--f-body); color: #111; background: #f4f5ef; border: 0; border-radius: 999px; padding: 7px 14px; cursor: pointer; }
+.lb-bar .nav2 { display: flex; gap: 8px; }
+
+/* ── Bac ─────────────────────────────────── */
+.bac-grid { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); gap: 48px; align-items: start; }
+@media (max-width: 900px) { .bac-grid { grid-template-columns: minmax(0, 1fr); gap: 36px; } }
+.bareme { display: flex; height: 64px; border-radius: 8px; overflow: hidden; border: 1px solid var(--ink); }
+.bareme div { display: grid; place-items: center; font-family: var(--f-display); font-size: var(--s2); border-right: 1px solid var(--ink); }
+.bareme div:last-child { border-right: 0; }
+.bareme .b1 { background: var(--paper-2); } .bareme .b2 { background: var(--paper); } .bareme .b3 { background: var(--violet-wash); } .bareme .b4 { background: var(--violet); color: #111; }
+.scale { display: flex; justify-content: space-between; font-size: .75rem; color: var(--ink-2); font-variant-numeric: tabular-nums; margin-top: 6px; }
+.legend { list-style: none; margin: 26px 0 0; padding: 0; display: grid; gap: 0; }
+.legend li { display: grid; grid-template-columns: 1.1rem minmax(0, 1fr) auto; gap: 12px; align-items: baseline; padding: 12px 0; border-bottom: 1px solid var(--rule); }
+.legend .sw { width: 1.1rem; height: 1.1rem; border-radius: 3px; border: 1px solid var(--ink); align-self: center; }
+.legend strong { display: block; font-weight: 600; }
+.legend span.d { color: var(--ink-2); font-size: .9375rem; }
+.legend .pts { font-family: var(--f-display); font-size: var(--s1); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.meta { display: flex; flex-wrap: wrap; gap: 8px 24px; margin-top: 18px; font-size: .9375rem; color: var(--ink-2); }
+.meta b { color: var(--ink); font-weight: 600; }
+.years { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+.year { border: 1px solid var(--rule); border-radius: 8px; padding: 14px 16px; background: var(--paper); }
+.year b { display: block; font-family: var(--f-display); font-weight: 400; font-size: var(--s2); font-variant-numeric: tabular-nums; }
+.year span { font-size: .8125rem; color: var(--ink-2); }
+.plus { margin-top: 22px; border-top: 2px solid var(--ink); padding-top: 18px; display: grid; gap: 14px; }
+.plus div { display: grid; grid-template-columns: 4.2rem minmax(0, 1fr); gap: 14px; align-items: baseline; }
+.plus .big { font-family: var(--f-display); font-size: var(--s3); color: var(--violet-ink); line-height: 1; font-variant-numeric: tabular-nums; }
+.plus p { margin: 0; color: var(--ink-2); }
+.plus p b { color: var(--ink); }
+
+/* ── Auteure ─────────────────────────────── */
+.author .wrap { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); gap: 56px; padding-block: 88px; }
+@media (max-width: 860px) { .author .wrap { grid-template-columns: minmax(0, 1fr); gap: 28px; padding-block: 60px; } }
+.author h2 { font-size: var(--s4); color: var(--band-ink); }
+.author .role { color: var(--violet); font-weight: 600; margin: 14px 0 0; }
+.author .quote { font-family: var(--f-display); font-size: clamp(1.25rem, 2.4vw, 1.625rem); line-height: 1.45; margin: 0; color: var(--band-ink); }
+.author .quote + p { color: var(--band-ink-2); margin: 20px 0 0; font-size: .9375rem; }
+footer.foot { background: var(--band); color: var(--band-ink-2); border-top: 1px solid rgba(255,255,255,.08); font-size: .875rem; }
+footer.foot .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px 24px; padding-block: 22px; }
+</style>
+</head>
+<body>
+
+
+<div class="band">
+  <div class="topbar">
+    <div class="wrap">
+      <a class="brand" href="#top" aria-label="Le Repère, accueil">
+        <svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><rect x=".5" y=".5" width="29" height="29" rx="5" fill="#fafbf6"/><path d="M10 6.5v16h13.5" fill="none" stroke="#111" stroke-width="3" stroke-linecap="square"/><circle cx="19" cy="11" r="2.2" fill="#9998fe"/></svg>
+        Le Repère
+      </a>
+      <nav class="nav" aria-label="Sections">
+        <a href="#figure">Échauffement</a>
+        <a href="#sommaire">Sommaire</a>
+        <a href="#methode">Méthode</a>
+        <a href="#bac">Bac</a>
+        <a class="nav-key" href="#apercu">Feuilleter</a>
+      </nav>
+    </div>
+  </div>
+
+  <header class="hero" id="top">
+    <div class="wrap">
+      <div>
+        <p class="eyebrow">MATHÉMATIQUES</p>
+        <h1>Le Repère</h1>
+        <div class="hero-line"><span class="pill">Terminale S</span><span>Cours · Exercices · Sujets de BAC</span></div>
+        <p class="lead">Un manuel complet pour préparer le Baccalauréat Série S à Madagascar : le cours illustré, les méthodes pas à pas, des exercices gradués du plus accessible au plus exigeant, et les sujets officiels de 2021 à 2026.</p>
+        <div class="cta">
+          <a class="btn btn-a" href="#sommaire">Voir le sommaire</a>
+          <a class="btn btn-b" href="#apercu">Feuilleter des pages</a>
+        </div>
+      </div>
+      <div class="cover">
+        <img src="assets/couverture.jpg" alt="Couverture du livre Le Repère, Mathématiques Terminale S, par Mamiarilala Razafimahefa" width="641" height="910">
+        <div class="seal"><span><b>CONFORME</b>au programme officiel malgache</span></div>
+      </div>
+    </div>
+  </header>
+</div>
+
+<div class="ledger">
+  <div class="wrap">
+    <dl>
+      <div><dt>pages au format A5</dt><dd>383</dd></div>
+      <div><dt>chapitres en 4 parties de cours</dt><dd>19</dd></div>
+      <div><dt>exercices, dont 87 résolus</dt><dd>300+</dd></div>
+      <div><dt>encadrés Méthode</dt><dd>68</dd></div>
+      <div><dt>figures et schémas</dt><dd>90+</dd></div>
+      <div><dt>sujets officiels du Bacc, 2021 à 2026</dt><dd>6</dd></div>
+    </dl>
+  </div>
+</div>
+
+<section class="block graph" id="figure">
+  <div class="wrap">
+    <div class="head">
+      <p class="label">Échauffement · Lire une figure</p>
+      <h2>Faites glisser le point <span class="m">M</span> sur la courbe</h2>
+      <p>Chaque chapitre commence ses exercices par la lecture d'une figure. Voici celle de la couverture : déplacez <span class="m">M</span>, lisez <span class="m">f</span>(<span class="m">a</span>) et la pente de la tangente, puis répondez au Vrai/Faux.</p>
+    </div>
+
+    <div class="fig-grid">
+      <div class="plate">
+        <svg id="plot" viewBox="0 0 640 430" role="img" aria-label="Courbe représentative d'une fonction f, avec un point M d'abscisse a et la tangente T en M"></svg>
+        <div class="slider">
+          <label for="a-range">a</label>
+          <input id="a-range" type="range" min="-3.5" max="3.6" step="0.05" value="0.8" aria-describedby="verdict">
+        </div>
+      </div>
+
+      <div>
+        <div class="readout" aria-live="polite">
+          <div class="row"><span>Abscisse</span><output id="o-a" class="tnum"></output></div>
+          <div class="row"><span>Image</span><output id="o-fa" class="tnum"></output></div>
+          <div class="row"><span>Nombre dérivé</span><output id="o-da" class="tnum"></output></div>
+          <div class="row"><span>Tangente</span><output id="o-t" class="tnum"></output></div>
+          <div class="verdict" id="verdict"></div>
+        </div>
+
+        <div class="vf">
+          <h3>Vrai ou faux ?</h3>
+          <div class="vf-item" data-ans="F">
+            <div class="vf-q"><p>1. <span class="m">f</span> est croissante sur [−1 ; 1].</p><div class="vf-btns"><button type="button" data-v="V">Vrai</button><button type="button" data-v="F">Faux</button></div></div>
+            <p class="vf-why" hidden>Faux. Placez <span class="m">a</span> entre −1 et 1 : le nombre dérivé reste négatif, donc <span class="m">f</span> y est décroissante.</p>
+          </div>
+          <div class="vf-item" data-ans="V">
+            <div class="vf-q"><p>2. L'équation <span class="m">f</span>(<span class="m">x</span>) = 0 a exactement trois solutions sur l'intervalle représenté.</p><div class="vf-btns"><button type="button" data-v="V">Vrai</button><button type="button" data-v="F">Faux</button></div></div>
+            <p class="vf-why" hidden>Vrai. La courbe coupe l'axe des abscisses trois fois : elle monte au-dessus, redescend juste sous l'axe, puis remonte.</p>
+          </div>
+          <div class="vf-item" data-ans="V">
+            <div class="vf-q"><p>3. La tangente au point d'abscisse 0 a pour coefficient directeur −1,5.</p><div class="vf-btns"><button type="button" data-v="V">Vrai</button><button type="button" data-v="F">Faux</button></div></div>
+            <p class="vf-why" hidden>Vrai. Avec <span class="m">a</span> = 0, on lit <span class="m">f</span>′(0) = −1,50 : c'est la pente de <span class="m">T</span>.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="sommaire">
+  <div class="wrap">
+    <div class="head">
+      <p class="label">Sommaire</p>
+      <h2>Tout le programme officiel, chapitre par chapitre</h2>
+      <p>Algèbre, Analyse, Géométrie et Probabilités, conformément au programme de Terminale S du MESUPRES. Ouvrez un chapitre pour lire sa citation et ses objectifs.</p>
+    </div>
+    <div class="toc-tools"><button type="button" id="open-all">Tout déplier</button><button type="button" id="close-all">Tout replier</button></div>
+    <div class="toc">
+    <section class="partie">
+      <header class="partie-h"><span class="partie-num">Partie I</span><h3>Algèbre</h3><span class="partie-p">p.&nbsp;1</span></header>
+      
+      <details class="chap" id="ch1">
+        <summary>
+          <span class="chap-n">1</span>
+          <span class="chap-t">Arithmétique dans ℤ</span>
+          <span class="chap-p">p.&nbsp;2</span>
+          <span class="chap-s">25 exercices · 13 résolus · 3 méthodes · 2 figures</span>
+        </summary>
+        <div class="chap-body">
+          <blockquote>« Dieu a créé les nombres entiers ; tout le reste est l&#x27;œuvre de l&#x27;homme. »<cite>Leopold Kronecker</cite></blockquote>
+          <div class="obj"><p class="label">Objectifs du chapitre</p><ul><li>Divisibilité, division euclidienne, congruences ; calcul dans ℤ/<span class="m">n</span>ℤ.</li><li>PGCD, PPCM, algorithme d'Euclide et relation PGCD × PPCM = |<span class="m">ab</span>|.</li><li>Théorèmes de Bézout et de Gauss ; équations diophantiennes <span class="m">ax</span> + <span class="m">by</span> = <span class="m">c</span>.</li><li>Écriture d'un entier dans une base quelconque, dont la base hexadécimale.</li></ul></div>
+        </div>
+      </details>
+      <details class="chap" id="ch2">
+        <summary>
+          <span class="chap-n">2</span>
+          <span class="chap-t">Calcul matriciel</span>
+          <span class="chap-p">p.&nbsp;29</span>
+          <span class="chap-s">14 exercices · 3 résolus · 7 méthodes · 3 figures</span>
+        </summary>
+        <div class="chap-body">
+          <blockquote>« Une matrice, c&#x27;est une machine à transformer des vecteurs, et une table de nombres qu&#x27;on apprend à faire parler. »</blockquote>
+          <div class="obj"><p class="label">Objectifs du chapitre</p><ul><li>Opérations sur les matrices carrées d'ordre <span class="m">n</span> ≤ 4 ; transposition.</li><li>Déterminant, trace et puissance <span class="m">n</span>-ième, dont la puissance par récurrence.</li><li>Inverse d'une matrice, notamment à l'aide d'une relation polynomiale.</li><li>Systèmes linéaires jusqu'à 4 inconnues par la méthode <span class="m">AX</span> = <span class="m">B</span>.</li></ul></div>
+        </div>
+      </details>
+      <details class="chap" id="ch3">
+        <summary>
+          <span class="chap-n">3</span>
+          <span class="chap-t">L'ensemble des nombres complexes</span>
+          <span class="chap-p">p.&nbsp;45</span>
+          <span class="chap-s">39 exercices · 16 résolus · 7 méthodes · 10 figures</span>
+        </summary>
+        <div class="chap-body">
+          <blockquote>« L&#x27;imaginaire est un beau et merveilleux refuge de l&#x27;esprit divin, presque un amphibie entre l&#x27;être et le non-être. »<cite>Gottfried Wilhelm Leibniz</cite></blockquote>
+          <div class="obj"><p class="label">Objectifs du chapitre</p><ul><li>Formes algébrique, trigonométrique, exponentielle et polaire.</li><li>Équations polynomiales de degré 2, 3 et 4 dans ℂ.</li><li>Interprétation géométrique : alignement, orthogonalité, cocyclicité, nature d'un triangle.</li><li>Ensembles de points et écriture complexe des transformations usuelles.</li></ul></div>
+        </div>
+      </details>
+    </section>
+    <section class="partie">
+      <header class="partie-h"><span class="partie-num">Partie II</span><h3>Analyse</h3><span class="partie-p">p.&nbsp;86</span></header>
+      
+      <details class="chap" id="ch4">
+        <summary>
+          <span class="chap-n">4</span>
+          <span class="chap-t">Limites et continuité</span>
+          <span class="chap-p">p.&nbsp;87</span>
+          <span class="chap-s">18 exercices · 4 résolus · 6 méthodes · 3 figures</span>
+        </summary>
+        <div class="chap-body">
+          <blockquote>« Approchez, et la foi vous viendra. »<cite>d&#x27;après Jean le Rond d&#x27;Alembert</cite></blockquote>
+          <div class="obj"><p class="label">Objectifs du chapitre</p><ul><li>Limites des fonctions bâties sur ln et exp ; croissances comparées.</li><li>Fonctions composées, théorèmes de comparaison et des gendarmes.</li><li>Continuité, prolongement par continuité, théorème des valeurs intermédiaires.</li><li>Asymptotes et image d'un intervalle.</li></ul></div>
+        </div>
+      </details>
+      <details class="chap" id="ch5">
+        <summary>
+          <span class="chap-n">5</span>
+          <span class="chap-t">Dérivabilité</span>
+          <span class="chap-p">p.&nbsp;109</span>
+          <span class="chap-s">18 exercices · 5 résolus · 4 méthodes · 3 figures</span>
+        </summary>
+        <div class="chap-body">
+          <blockquote>« Pour connaître une courbe, il suffit d&#x27;en connaître les tangentes. »<cite>d&#x27;après Gottfried Wilhelm Leibniz</cite></blockquote>
+          <div class="obj"><p class="label">Objectifs du chapitre</p><ul><li>Dérivabilité en un point, demi-tangentes, point anguleux, tangente verticale.</li><li>Dérivée d'une composée (<span class="m">g</span>∘<span class="m">u</span>)′ = (<span class="m">g</span>′∘<span class="m">u</span>)·<span class="m">u</span>′ et d'une réciproque.</li><li>Convexité, concavité, points d'inflexion.</li><li>Théorème et inégalité des accroissements finis ; familles de fonctions (<span class="m">f</span><sub><span class="m">m</span></sub>).</li></ul></div>
+        </div>
+      </details>
+      <details class="chap" id="ch6">
+        <summary>
+          <span class="chap-n">6</span>
+          <span class="chap-t">Étude d'une fonction</span>
+          <span class="chap-p">p.&nbsp;127</span>
+          <span class="chap-s">14 exercices · 6 résolus · 6 méthodes · 9 figures</span>
+        </summary>
+        <div class="chap-body">
+          <blockquote>« Toute la connaissance d&#x27;une courbe tient dans ses pentes et sa courbure. »<cite>d&#x27;après Christiaan Huygens</cite></blockquote>
+          <div class="obj"><p class="label">Objectifs du chapitre</p><ul><li>Étude complète selon un plan systématique, puis tracé de la courbe.</li><li>Branches infinies : asymptotes, directions asymptotiques, branches paraboliques.</li><li>Position relative d'une courbe et d'une droite ; résolution graphique.</li><li>Reconnaître les courbes de <span class="m">f</span>, <span class="m">f</span>′ et <span class="m">f</span>″ sur une même figure.</li></ul></div>
+        </div>
+      </details>
+      <details class="chap" id="ch7">
+        <summary>
+          <span class="chap-n">7</span>
+          <span class="chap-t">Primitives et intégrale</span>
+          <span class="chap-p">p.&nbsp;144</span>
+          <span class="chap-s">15 exercices · 3 résolus · 3 méthodes · 1 figure</span>
+        </summary>
+        <div class="chap-body">
+          <blockquote>« Le signe ∫ n&#x27;est autre qu&#x27;un S allongé : il représente une somme. »<cite>d&#x27;après Gottfried Wilhelm Leibniz</cite></blockquote>
+          <div class="obj"><p class="label">Objectifs du chapitre</p><ul><li>Primitives usuelles et forme <span class="m">u</span>′ × <span class="m">f</span>(<span class="m">u</span>).</li><li>Linéarité, relation de Chasles, positivité, valeur moyenne.</li><li>Intégration par parties, changement de variable affine.</li><li>Aire, volume de révolution, moment d'inertie.</li></ul></div>
+        </div>
+      </details>
+      <details class="chap" id="ch8">
+        <summary>
+          <span class="chap-n">8</span>
+          <span class="chap-t">Fonction logarithme népérien</span>
+          <span class="chap-p">p.&nbsp;159</span>
+          <span class="chap-s">9 exercices · 2 méthodes · 1 figure</span>
+        </summary>
+        <div class="chap-body">
+          <blockquote>« Les logarithmes, en abrégeant les calculs, ont pour ainsi dire doublé la vie des astronomes. »<cite>Pierre-Simon de Laplace</cite></blockquote>
+          <div class="obj"><p class="label">Objectifs du chapitre</p><ul><li>Définition de ln et propriétés algébriques.</li><li>Limites usuelles ; dérivée de ln <span class="m">u</span>.</li><li>Équations, inéquations et systèmes avec ln.</li><li>Logarithme de base <span class="m">a</span> et logarithme décimal.</li></ul></div>
+        </div>
+      </details>
+      <details class="chap" id="ch9">
+        <summary>
+          <span class="chap-n">9</span>
+          <span class="chap-t">Fonction exponentielle</span>
+          <span class="chap-p">p.&nbsp;166</span>
+          <span class="chap-s">9 exercices · 2 méthodes · 1 figure</span>
+        </summary>
+        <div class="chap-body">
+          <blockquote>« La fonction exponentielle est la seule, à un coefficient près, qui soit égale à sa propre dérivée : elle se reproduit elle-même. »<cite>adage d&#x27;analyse</cite></blockquote>
+          <div class="obj"><p class="label">Objectifs du chapitre</p><ul><li>exp comme réciproque de ln ; propriétés algébriques.</li><li>Limites usuelles ; dérivée de e<sup><span class="m">u</span></sup>.</li><li>Équations, inéquations et systèmes avec e<sup><span class="m">x</span></sup>.</li><li>Fonctions <span class="m">x</span> ↦ <span class="m">a</span><sup><span class="m">x</span></sup> et <span class="m">x</span> ↦ <span class="m">u</span>(<span class="m">x</span>)<sup><span class="m">v</span>(<span class="m">x</span>)</sup>.</li></ul></div>
+        </div>
+      </details>
+      <details class="chap" id="ch10">
+        <summary>
+          <span class="chap-n">10</span>
+          <span class="chap-t">Suites numériques</span>
+          <span class="chap-p">p.&nbsp;173</span>
+          <span class="chap-s">16 exercices · 5 résolus · 6 méthodes</span>
+        </summary>
+        <div class="chap-body">
+          <blockquote>« Le raisonnement par récurrence est l&#x27;instrument qui permet de passer du fini à l&#x27;infini. »<cite>d&#x27;après Henri Poincaré</cite></blockquote>
+          <div class="obj"><p class="label">Objectifs du chapitre</p><ul><li>Raisonnement par récurrence, simple ou double.</li><li>Sens de variation ; suites majorées, minorées, bornées.</li><li>Convergence : limite monotone, comparaison, gendarmes.</li><li>Suites <span class="m">u</span><sub><span class="m">n</span>+1</sub> = <span class="m">g</span>(<span class="m">u</span><sub><span class="m">n</span></sub>), arithmético-géométriques, adjacentes.</li></ul></div>
+        </div>
+      </details>
+      <details class="chap" id="ch11">
+        <summary>
+          <span class="chap-n">11</span>
+          <span class="chap-t">Équations différentielles</span>
+          <span class="chap-p">p.&nbsp;188</span>
+          <span class="chap-s">15 exercices · 3 résolus · 3 méthodes · 3 figures</span>
+        </summary>
+        <div class="chap-body">
+          <blockquote>« Les lois de la nature ne sont rien d&#x27;autre que des relations entre une grandeur et ses variations. »<cite>adage de physique mathématique</cite></blockquote>
+          <div class="obj"><p class="label">Objectifs du chapitre</p><ul><li>Résoudre <span class="m">y</span>′ = <span class="m">ky</span>, <span class="m">y</span>′ + <span class="m">ay</span> = <span class="m">b</span>.</li><li>Résoudre <span class="m">ay</span>″ + <span class="m">by</span>′ + <span class="m">cy</span> = 0 par l'équation caractéristique (trois cas).</li><li>Conditions initiales : problème de Cauchy.</li><li>Équations avec second membre : solution particulière + solution homogène.</li></ul></div>
+        </div>
+      </details>
+    </section>
+    <section class="partie">
+      <header class="partie-h"><span class="partie-num">Partie III</span><h3>Géométrie</h3><span class="partie-p">p.&nbsp;199</span></header>
+      
+      <details class="chap" id="ch12">
+        <summary>
+          <span class="chap-n">12</span>
+          <span class="chap-t">Barycentre</span>
+          <span class="chap-p">p.&nbsp;200</span>
+          <span class="chap-s">16 exercices · 4 résolus · 1 méthode · 8 figures</span>
+        </summary>
+        <div class="chap-body">
+          <blockquote>« Donnez-moi un point d&#x27;appui et un levier, et je soulèverai le monde. »<cite>d&#x27;après Archimède</cite></blockquote>
+          <div class="obj"><p class="label">Objectifs du chapitre</p><ul><li>Barycentre d'un système de points pondérés : définition et construction.</li><li>Homogénéité, associativité, réduction vectorielle.</li><li>Lignes de niveau et ensembles de points.</li><li>Géométrie analytique et centres remarquables.</li></ul></div>
+        </div>
+      </details>
+      <details class="chap" id="ch13">
+        <summary>
+          <span class="chap-n">13</span>
+          <span class="chap-t">Les isométries du plan</span>
+          <span class="chap-p">p.&nbsp;215</span>
+          <span class="chap-s">35 exercices · 6 résolus · 3 méthodes · 20 figures</span>
+        </summary>
+        <div class="chap-body">
+          <blockquote>« La symétrie est l&#x27;idée par laquelle l&#x27;homme, à travers les âges, a tenté de comprendre et de créer l&#x27;ordre, la beauté et la perfection. »<cite>Hermann Weyl, Symmetry</cite></blockquote>
+          <div class="obj"><p class="label">Objectifs du chapitre</p><ul><li>Classer les isométries du plan par leurs points fixes.</li><li>Décomposer une translation ou une rotation en deux réflexions d'axes bien choisis.</li><li>Composées <span class="m">t</span>∘<span class="m">r</span>, <span class="m">r</span>∘<span class="m">t</span>, <span class="m">r</span><sub>1</sub>∘<span class="m">r</span><sub>2</sub> par la méthode de l'axe commun ; symétrie glissée.</li><li>Retrouver ces résultats avec les complexes ; homothéties et similitudes directes.</li></ul></div>
+        </div>
+      </details>
+      <details class="chap" id="ch14">
+        <summary>
+          <span class="chap-n">14</span>
+          <span class="chap-t">Géométrie dans l'espace</span>
+          <span class="chap-p">p.&nbsp;246</span>
+          <span class="chap-s">14 exercices · 4 résolus · 2 méthodes · 3 figures</span>
+        </summary>
+        <div class="chap-body">
+          <blockquote>« La géométrie n&#x27;est pas vraie, elle est avantageuse. »<cite>Henri Poincaré</cite></blockquote>
+          <div class="obj"><p class="label">Objectifs du chapitre</p><ul><li>Produit scalaire et produit vectoriel, formes analytique et géométrique.</li><li>Équations cartésiennes et paramétriques de droites et de plans.</li><li>Positions relatives, distances, projeté orthogonal.</li><li>Équation d'une sphère et intersection avec un plan.</li></ul></div>
+        </div>
+      </details>
+    </section>
+    <section class="partie">
+      <header class="partie-h"><span class="partie-num">Partie IV</span><h3>Probabilités</h3><span class="partie-p">p.&nbsp;260</span></header>
+      
+      <details class="chap" id="ch15">
+        <summary>
+          <span class="chap-n">15</span>
+          <span class="chap-t">Probabilités</span>
+          <span class="chap-p">p.&nbsp;261</span>
+          <span class="chap-s">13 exercices · 3 résolus · 2 méthodes · 2 figures</span>
+        </summary>
+        <div class="chap-body">
+          <blockquote>« La théorie des probabilités n&#x27;est au fond que le bon sens réduit au calcul. »<cite>Pierre-Simon de Laplace</cite></blockquote>
+          <div class="obj"><p class="label">Objectifs du chapitre</p><ul><li>Univers, issues, événements, système complet.</li><li>Équiprobabilité et modèles donnés par une loi.</li><li>Dénombrement : <span class="m">p</span>-listes, arrangements, permutations, combinaisons.</li><li>Événement contraire et formule de Poincaré.</li></ul></div>
+        </div>
+      </details>
+      <details class="chap" id="ch16">
+        <summary>
+          <span class="chap-n">16</span>
+          <span class="chap-t">Probabilités conditionnelles</span>
+          <span class="chap-p">p.&nbsp;272</span>
+          <span class="chap-s">11 exercices · 3 résolus · 3 méthodes · 8 figures</span>
+        </summary>
+        <div class="chap-body">
+          <blockquote>« Lorsqu&#x27;une information nouvelle nous parvient, la probabilité que nous accordons à un événement doit être révisée. »<cite>d&#x27;après Thomas Bayes</cite></blockquote>
+          <div class="obj"><p class="label">Objectifs du chapitre</p><ul><li>Probabilité conditionnelle ℙ<sub><span class="m">B</span></sub>(<span class="m">A</span>) et arbres pondérés.</li><li>Formule des probabilités totales sur un système complet.</li><li>Formule de Bayes : « inverser » un arbre.</li><li>Indépendance ; tirages successifs avec ou sans remise.</li></ul></div>
+        </div>
+      </details>
+      <details class="chap" id="ch17">
+        <summary>
+          <span class="chap-n">17</span>
+          <span class="chap-t">Variables aléatoires</span>
+          <span class="chap-p">p.&nbsp;284</span>
+          <span class="chap-s">11 exercices · 3 résolus · 2 méthodes · 5 figures</span>
+        </summary>
+        <div class="chap-body">
+          <blockquote>« L&#x27;espérance mathématique est la somme de chaque gain multiplié par la probabilité de l&#x27;obtenir. »<cite>Christiaan Huygens, De ratiociniis in ludo aleae</cite></blockquote>
+          <div class="obj"><p class="label">Objectifs du chapitre</p><ul><li>Loi de probabilité et fonction de répartition.</li><li>Espérance, variance, écart-type (König-Huygens).</li><li>Linéarité : 𝔼(<span class="m">aX</span> + <span class="m">b</span>), Var(<span class="m">aX</span> + <span class="m">b</span>) ; jeux équitables.</li><li>Épreuve et schéma de Bernoulli.</li></ul></div>
+        </div>
+      </details>
+      <details class="chap" id="ch18">
+        <summary>
+          <span class="chap-n">18</span>
+          <span class="chap-t">Loi binomiale</span>
+          <span class="chap-p">p.&nbsp;294</span>
+          <span class="chap-s">12 exercices · 3 résolus · 3 méthodes · 3 figures</span>
+        </summary>
+        <div class="chap-body">
+          <blockquote>« L&#x27;art de conjecturer consiste à mesurer aussi exactement que possible les probabilités des choses. »<cite>Jacques Bernoulli, Ars Conjectandi</cite></blockquote>
+          <div class="obj"><p class="label">Objectifs du chapitre</p><ul><li>Coefficients binomiaux, triangle de Pascal, binôme de Newton.</li><li>Reconnaître une loi ℬ(<span class="m">n</span>, <span class="m">p</span>).</li><li>Calculer ℙ(<span class="m">X</span> = <span class="m">k</span>), 𝔼(<span class="m">X</span>), Var(<span class="m">X</span>), σ(<span class="m">X</span>).</li><li>Déterminer un seuil : plus petit <span class="m">n</span> tel que ℙ(<span class="m">X</span> ≥ 1) ≥ α.</li></ul></div>
+        </div>
+      </details>
+      <details class="chap" id="ch19">
+        <summary>
+          <span class="chap-n">19</span>
+          <span class="chap-t">Lois continues et loi normale</span>
+          <span class="chap-p">p.&nbsp;304</span>
+          <span class="chap-s">11 exercices · 3 résolus · 3 méthodes · 5 figures</span>
+        </summary>
+        <div class="chap-body">
+          <blockquote>« Toutes choses obéissent à cette loi générale que l&#x27;on pourrait nommer la loi des erreurs. »<cite>d&#x27;après Carl Friedrich Gauss</cite></blockquote>
+          <div class="obj"><p class="label">Objectifs du chapitre</p><ul><li>Densité de probabilité : une probabilité est une aire sous la courbe.</li><li>Loi uniforme et loi exponentielle (absence de mémoire).</li><li>Loi normale 𝒩(0, 1), lecture de Φ et standardisation <span class="m">Z</span> = (<span class="m">X</span> − <span class="m">m</span>)/σ.</li><li>Les repères 68 % / 95,44 % / 99,74 %.</li></ul></div>
+        </div>
+      </details>
+    </section>
+    <section class="partie">
+      <header class="partie-h"><span class="partie-num">Partie V</span><h3>Sujets et entraînement</h3><span class="partie-p">p.&nbsp;315</span></header>
+      <a class="chap chap-link" href="#bac"><span class="chap-n">◆</span><span class="chap-t">Baccalauréat Série S, sessions 2021 à 2026</span><span class="chap-p">p.&nbsp;316</span><span class="chap-s">6 sujets officiels transcrits avec leur barème</span></a>
+      <a class="chap chap-link" href="#bac"><span class="chap-n">20</span><span class="chap-t">Entraînement</span><span class="chap-p">p.&nbsp;341</span><span class="chap-s">19 sujets types et des sujets du bac étranger</span></a>
+    </section>
+    </div>
+  </div>
+</section>
+
+<section class="block graph" id="methode">
+  <div class="wrap">
+    <div class="head">
+      <p class="label">Méthode</p>
+      <h2>Chaque chapitre avance en cinq temps</h2>
+      <p>Les dix-neuf chapitres suivent le même plan. L'élève sait toujours où il en est : comprendre, voir faire, s'échauffer, s'entraîner, puis passer l'épreuve.</p>
+    </div>
+    <div class="steps">
+      <div class="step"><span class="step-k">1</span><h3>Cours illustré</h3><p>Définitions, propriétés et théorèmes, avec schémas et exemples.</p></div>
+      <div class="step"><span class="step-k">2</span><h3>Méthodes et exercices résolus</h3><p>Les démarches attendues au Bac, étape par étape, puis appliquées.</p></div>
+      <div class="step"><span class="step-k">3</span><h3>Échauffement</h3><p>Lire une figure, puis une série de Vrai/Faux pour vérifier les réflexes.</p></div>
+      <div class="step"><span class="step-k">4</span><h3>Exercices gradués</h3><p><span class="stars">★☆☆</span> facile, <span class="stars">★★☆</span> moyen, <span class="stars">★★★</span> difficile.</p></div>
+      <div class="step"><span class="step-k">5</span><h3>Sujets types Bac</h3><p>Au moins cinq sujets au format officiel, avec le barème.</p></div>
+    </div>
+
+    <div class="boxes">
+      <div class="box"><div class="box-h">Méthode</div><p>La démarche à suivre, numérotée, pour un type de question fréquent à l'examen.</p></div>
+      <div class="box"><div class="box-h v">Astuce Bac</div><p>Ce que le correcteur attend, et la façon de rédiger pour gagner les points.</p></div>
+      <div class="box"><div class="box-h o">Attention</div><p>Les erreurs classiques repérées dans les copies, et comment les éviter.</p></div>
+      <div class="box"><div class="box-h v">Dans la vraie vie</div><p>La notion appliquée à une situation concrète : un test de dépistage, un emprunt, une population.</p></div>
+      <div class="box"><div class="box-h o">Repère historique</div><p>Les mathématiciens derrière les théorèmes, en quelques lignes.</p></div>
+      <div class="box"><div class="box-h">Résumé</div><p>L'essentiel d'une section rassemblé dans un tableau à relire la veille de l'épreuve.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="apercu">
+  <div class="wrap">
+    <div class="head">
+      <p class="label">Aperçu</p>
+      <h2>Quelques pages du livre</h2>
+      <p>Pages extraites de l'édition actuelle. Touchez une page pour l'agrandir.</p>
+    </div>
+    <div class="strip" id="strip">
+        <figure class="spec">
+          <button class="spec-btn" type="button" data-src="0" aria-label="Agrandir la page 133">
+            <img src="assets/pages/page-133.jpg" alt="Page 133 : Étude d&#x27;une fonction" loading="lazy" width="641" height="910">
+          </button>
+          <figcaption><span class="spec-p">p.&nbsp;133</span> <strong>Étude d'une fonction</strong><br>Une propriété, l'encadré Méthode qui la met en œuvre, puis un exercice résolu.</figcaption>
+        </figure>
+        <figure class="spec">
+          <button class="spec-btn" type="button" data-src="1" aria-label="Agrandir la page 215">
+            <img src="assets/pages/page-215.jpg" alt="Page 215 : Ouverture du chapitre 13" loading="lazy" width="641" height="910">
+          </button>
+          <figcaption><span class="spec-p">p.&nbsp;215</span> <strong>Ouverture du chapitre 13</strong><br>Citation, objectifs du chapitre, puis rappels et vocabulaire.</figcaption>
+        </figure>
+        <figure class="spec">
+          <button class="spec-btn" type="button" data-src="2" aria-label="Agrandir la page 224">
+            <img src="assets/pages/page-224.jpg" alt="Page 224 : Isométries du plan" loading="lazy" width="641" height="910">
+          </button>
+          <figcaption><span class="spec-p">p.&nbsp;224</span> <strong>Isométries du plan</strong><br>Un arbre de décision pour reconnaître une isométrie à coup sûr.</figcaption>
+        </figure>
+        <figure class="spec">
+          <button class="spec-btn" type="button" data-src="3" aria-label="Agrandir la page 276">
+            <img src="assets/pages/page-276.jpg" alt="Page 276 : Dans la vraie vie" loading="lazy" width="641" height="910">
+          </button>
+          <figcaption><span class="spec-p">p.&nbsp;276</span> <strong>Dans la vraie vie</strong><br>Un test positif, est-on vraiment malade ? La formule de Bayes sur un TDR.</figcaption>
+        </figure>
+        <figure class="spec">
+          <button class="spec-btn" type="button" data-src="4" aria-label="Agrandir la page 316">
+            <img src="assets/pages/page-316.jpg" alt="Page 316 : Bacc Série S, session 2021" loading="lazy" width="641" height="910">
+          </button>
+          <figcaption><span class="spec-p">p.&nbsp;316</span> <strong>Bacc Série S, session 2021</strong><br>Le sujet officiel transcrit intégralement, barème compris.</figcaption>
+        </figure>
+    </div>
+  </div>
+</section>
+
+<section class="block graph" id="bac">
+  <div class="wrap">
+    <div class="head">
+      <p class="label">Baccalauréat Série S</p>
+      <h2>Préparer l'épreuve telle qu'elle est</h2>
+      <p>Les sujets officiels ont tous la même architecture depuis 2021. Le livre les transcrit intégralement et entraîne sur chacun des quatre blocs.</p>
+    </div>
+
+    <div class="bac-grid">
+      <div>
+        <p class="label" style="margin-bottom:12px">Répartition des 20 points</p>
+        <div class="bareme" role="img" aria-label="Barème : exercice 1, 3 points ; exercice 2, 2 points ; problème 1, 7 points ; problème 2, 8 points">
+          <div class="b1" style="flex:3">3</div><div class="b2" style="flex:2">2</div><div class="b3" style="flex:7">7</div><div class="b4" style="flex:8">8</div>
+        </div>
+        <div class="scale" aria-hidden="true"><span>0</span><span>5</span><span>10</span><span>15</span><span>20 pts</span></div>
+        <ul class="legend">
+          <li><span class="sw" style="background:var(--paper-2)"></span><span><strong>Exercice 1 · Algèbre</strong><span class="d">Arithmétique et matrices : congruences, Bézout, inverse par relation polynomiale.</span></span><span class="pts">3 pts</span></li>
+          <li><span class="sw" style="background:var(--paper)"></span><span><strong>Exercice 2 · Espace</strong><span class="d">Produit vectoriel, plans et droites, distances, sphère.</span></span><span class="pts">2 pts</span></li>
+          <li><span class="sw" style="background:var(--violet-wash)"></span><span><strong>Problème 1 · Géométrie plane</strong><span class="d">Barycentre, lignes de niveau, composées d'isométries, puis calcul complexe.</span></span><span class="pts">7 pts</span></li>
+          <li><span class="sw" style="background:var(--violet)"></span><span><strong>Problème 2 · Analyse</strong><span class="d">Fonction définie par morceaux, puis suites, intégrales ou équation différentielle.</span></span><span class="pts">8 pts</span></li>
+        </ul>
+        <div class="meta"><span>Durée <b>4 heures</b></span><span>Coefficient <b>6</b></span><span>En 2021 : <b>3 / 3 / 6 / 8</b></span></div>
+      </div>
+
+      <div>
+        <p class="label" style="margin-bottom:12px">Sujets officiels transcrits</p>
+        <div class="years">
+          <div class="year"><b>2021</b><span>Session officielle</span></div>
+          <div class="year"><b>2022</b><span>Session officielle</span></div>
+          <div class="year"><b>2023</b><span>Session officielle</span></div>
+          <div class="year"><b>2024</b><span>Session officielle</span></div>
+          <div class="year"><b>2025</b><span>Session officielle</span></div>
+          <div class="year"><b>2026</b><span>Session officielle</span></div>
+        </div>
+        <div class="plus">
+          <div><span class="big">19</span><p><b>sujets types</b> complets dans le chapitre Entraînement, au format et au niveau de l'épreuve.</p></div>
+          <div><span class="big">5+</span><p><b>sujets types par chapitre</b>, pour s'exercer dès qu'une notion est vue en classe.</p></div>
+          <div><span class="big">+</span><p><b>sujets du bac étranger</b> pour varier les énoncés et sortir des automatismes.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band author" id="auteure">
+  <div class="wrap">
+    <div>
+      <p class="eyebrow">L'AUTEURE</p>
+      <h2>Mamiarilala Razafimahefa</h2>
+      <p class="role">Professeure certifiée en Mathématiques</p>
+    </div>
+    <div>
+      <p class="quote">« Réussir en mathématiques ne tient pas à un don particulier, mais à la régularité du travail et à la compréhension progressive des raisonnements. »</p>
+      <p>Extrait de la préface du livre.</p>
+    </div>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="wrap">
+    <span>© 2026 Mamiarilala Razafimahefa · Le Repère, Mathématiques Terminale S</span>
+    <span>Conforme au programme officiel malgache, Série S</span>
+  </div>
+</footer>
+
+<dialog class="lb" id="lb" aria-label="Page agrandie">
+  <img id="lb-img" alt="">
+  <div class="lb-bar"><span id="lb-cap"></span><span class="nav2"><button type="button" id="lb-prev" aria-label="Page précédente">‹</button><button type="button" id="lb-next" aria-label="Page suivante">›</button><button type="button" id="lb-close">Fermer</button></span></div>
+</dialog>
+
+<script>
+(function () {
+  /* ── Figure : f(x) = (x³ − 9x)/6 + 3/2 ── */
+  var f = function (x) { return (x * x * x - 9 * x) / 6 + 1.5; };
+  var df = function (x) { return (x * x - 3) / 2; };
+  var X0 = -4, X1 = 4.2, Y0 = -1.7, Y1 = 5.4, W = 640, H = 430, P = 6;
+  var sx = function (x) { return P + (x - X0) / (X1 - X0) * (W - 2 * P); };
+  var sy = function (y) { return H - P - (y - Y0) / (Y1 - Y0) * (H - 2 * P); };
+  var ix = function (px) { return X0 + (px - P) / (W - 2 * P) * (X1 - X0); };
+  var NS = "http://www.w3.org/2000/svg";
+  var svg = document.getElementById("plot");
+  function el(name, attrs, parent) {
+    var e = document.createElementNS(NS, name);
+    for (var k in attrs) e.setAttribute(k, attrs[k]);
+    (parent || svg).appendChild(e); return e;
+  }
+  var defs = el("defs", {});
+  var cp = el("clipPath", { id: "clip" }, defs); el("rect", { x: P, y: P, width: W - 2 * P, height: H - 2 * P }, cp);
+  var mk = el("marker", { id: "arr", viewBox: "0 0 10 10", refX: "8", refY: "5", markerWidth: "7", markerHeight: "7", orient: "auto-start-reverse" }, defs);
+  el("path", { d: "M0,0 L10,5 L0,10 z", style: "fill:var(--ink)" }, mk);
+  for (var gx = -3; gx <= 4; gx++) el("line", { class: "gl", x1: sx(gx), x2: sx(gx), y1: sy(Y0), y2: sy(Y1) });
+  for (var gy = -1; gy <= 5; gy++) el("line", { class: "gl", y1: sy(gy), y2: sy(gy), x1: sx(X0), x2: sx(X1) });
+  el("line", { class: "ax", x1: sx(X0), x2: sx(X1) - 2, y1: sy(0), y2: sy(0), "marker-end": "url(#arr)" });
+  el("line", { class: "ax", x1: sx(0), x2: sx(0), y1: sy(Y0), y2: sy(Y1) + 2, "marker-end": "url(#arr)" });
+  el("line", { class: "vec", x1: sx(0), y1: sy(0), x2: sx(1) - 3, y2: sy(0), "marker-end": "url(#arr)" });
+  el("line", { class: "vec", x1: sx(0), y1: sy(0), x2: sx(0), y2: sy(1) + 3, "marker-end": "url(#arr)" });
+  var t = el("text", { x: sx(0) - 20, y: sy(0) + 20 }); t.textContent = "O";
+  t = el("text", { x: sx(0.45), y: sy(0) + 20 }); t.textContent = "i";
+  t = el("text", { x: sx(0) - 18, y: sy(0.55) }); t.textContent = "j";
+  var d = "";
+  for (var i = 0; i <= 200; i++) { var x = -3.72 + i * (3.86 + 3.72) / 200; d += (i ? "L" : "M") + sx(x).toFixed(1) + "," + sy(f(x)).toFixed(1); }
+  var g = el("g", { "clip-path": "url(#clip)" });
+  var tan = el("line", { class: "tan" }, g);
+  el("path", { class: "curve", d: d }, g);
+  var pv = el("line", { class: "proj" }), ph = el("line", { class: "proj" });
+  t = el("text", { class: "v", x: sx(3.3), y: sy(4.6) }); t.textContent = "𝒞";
+  t = el("text", { class: "v", x: sx(3.3) + 15, y: sy(4.6) + 6, style: "font-size:13px" }); t.textContent = "f";
+  var lT = el("text", {}); lT.textContent = "T";
+  var la = el("text", {}); la.textContent = "a";
+  var lfa = el("text", { "text-anchor": "end" }); lfa.textContent = "f(a)";
+  var lM = el("text", {}); lM.textContent = "M";
+  var dot = el("circle", { class: "handle", r: 9 });
+
+  var fmt = function (v) { var s = Math.abs(v).toFixed(2).replace(".", ","); return (v < -0.0049 ? "−" : "") + s; };
+  var oa = document.getElementById("o-a"), ofa = document.getElementById("o-fa"), oda = document.getElementById("o-da"), ot = document.getElementById("o-t"), ov = document.getElementById("verdict");
+  var range = document.getElementById("a-range");
+
+  function draw(a) {
+    var fa = f(a), m = df(a), p = fa - m * a;
+    var mx = sx(a), my = sy(fa);
+    tan.setAttribute("x1", sx(a - 3)); tan.setAttribute("y1", sy(fa - 3 * m));
+    tan.setAttribute("x2", sx(a + 3)); tan.setAttribute("y2", sy(fa + 3 * m));
+    pv.setAttribute("x1", mx); pv.setAttribute("x2", mx); pv.setAttribute("y1", my); pv.setAttribute("y2", sy(0));
+    ph.setAttribute("x1", mx); ph.setAttribute("x2", sx(0)); ph.setAttribute("y1", my); ph.setAttribute("y2", my);
+    dot.setAttribute("cx", mx); dot.setAttribute("cy", my);
+    lM.setAttribute("x", mx + 12); lM.setAttribute("y", my - 12);
+    la.setAttribute("x", mx - 5); la.setAttribute("y", sy(0) + (fa >= 0 ? 22 : -10));
+    lfa.setAttribute("x", sx(0) - 8); lfa.setAttribute("y", my + 5);
+    lfa.style.opacity = Math.abs(a) < 0.6 ? 0 : 1; la.style.opacity = Math.abs(a) < 0.25 ? 0 : 1;
+    var tx = a + (m < 0 ? -1.9 : 1.9); if (tx > 3.9) tx = a - 1.9; if (tx < -3.8) tx = a + 1.9;
+    var ty = fa + m * (tx - a); ty = Math.max(Y0 + .3, Math.min(Y1 - .3, ty));
+    lT.setAttribute("x", sx(tx) + 6); lT.setAttribute("y", sy(ty) - 8);
+    oa.textContent = "a = " + fmt(a);
+    ofa.textContent = "f(a) = " + fmt(fa);
+    oda.textContent = "f′(a) = " + fmt(m);
+    var pTxt = Math.abs(p) < 0.005 ? "" : (p > 0 ? " + " : " − ") + fmt(Math.abs(p));
+    ot.textContent = "y = " + (Math.abs(m) < 0.005 ? fmt(p) : fmt(m) + "x" + pTxt);
+    if (Math.abs(m) < 0.06) ov.textContent = "Tangente horizontale : f′(a) = 0. La courbe atteint ici un extremum local.";
+    else if (m > 0) ov.textContent = "f′(a) > 0 : la tangente monte, f est croissante au voisinage de a.";
+    else ov.textContent = "f′(a) < 0 : la tangente descend, f est décroissante au voisinage de a.";
+  }
+  range.addEventListener("input", function () { draw(+range.value); });
+
+  var dragging = false;
+  function fromEvent(e) {
+    var pt = svg.createSVGPoint(); pt.x = e.clientX; pt.y = e.clientY;
+    var loc = pt.matrixTransform(svg.getScreenCTM().inverse());
+    var a = Math.max(-3.5, Math.min(3.6, ix(loc.x)));
+    a = Math.round(a / 0.05) * 0.05; range.value = a; draw(a);
+  }
+  svg.addEventListener("pointerdown", function (e) { dragging = true; svg.setPointerCapture(e.pointerId); fromEvent(e); });
+  svg.addEventListener("pointermove", function (e) { if (dragging) fromEvent(e); });
+  svg.addEventListener("pointerup", function () { dragging = false; });
+  svg.addEventListener("pointercancel", function () { dragging = false; });
+  draw(+range.value);
+
+  /* ── Vrai / Faux ── */
+  document.querySelectorAll(".vf-item").forEach(function (item) {
+    var ans = item.getAttribute("data-ans");
+    item.querySelectorAll("button").forEach(function (b) {
+      b.setAttribute("aria-pressed", "false");
+      b.addEventListener("click", function () {
+        item.querySelectorAll("button").forEach(function (o) { o.setAttribute("aria-pressed", "false"); o.classList.remove("ok", "ko"); });
+        b.setAttribute("aria-pressed", "true");
+        b.classList.add(b.getAttribute("data-v") === ans ? "ok" : "ko");
+        item.querySelector(".vf-why").hidden = false;
+      });
+    });
+  });
+
+  /* ── Sommaire ── */
+  var chaps = document.querySelectorAll("details.chap");
+  document.getElementById("open-all").addEventListener("click", function () { chaps.forEach(function (c) { c.open = true; }); });
+  document.getElementById("close-all").addEventListener("click", function () { chaps.forEach(function (c) { c.open = false; }); });
+
+  /* ── Visionneuse ── */
+  var specs = Array.prototype.slice.call(document.querySelectorAll(".spec"));
+  var lb = document.getElementById("lb"), lbImg = document.getElementById("lb-img"), lbCap = document.getElementById("lb-cap"), cur = 0;
+  function show(i) {
+    cur = (i + specs.length) % specs.length;
+    var img = specs[cur].querySelector("img");
+    lbImg.src = img.src; lbImg.alt = img.alt;
+    lbCap.textContent = specs[cur].querySelector("figcaption strong").textContent + ", " + specs[cur].querySelector(".spec-p").textContent;
+  }
+  function open(i) { show(i); if (lb.showModal) { try { lb.showModal(); } catch (e) { lb.setAttribute("open", ""); } } else lb.setAttribute("open", ""); }
+  function close() { if (lb.close) lb.close(); else lb.removeAttribute("open"); }
+  specs.forEach(function (s, i) { s.querySelector(".spec-btn").addEventListener("click", function () { open(i); }); });
+  document.getElementById("lb-close").addEventListener("click", close);
+  document.getElementById("lb-prev").addEventListener("click", function () { show(cur - 1); });
+  document.getElementById("lb-next").addEventListener("click", function () { show(cur + 1); });
+  lb.addEventListener("click", function (e) { if (e.target === lb) close(); });
+  lb.addEventListener("keydown", function (e) { if (e.key === "ArrowLeft") show(cur - 1); if (e.key === "ArrowRight") show(cur + 1); });
+})();
+</script>
+
+</body>
+</html>
