@@ -3,12 +3,12 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="Manuel de mathématiques pour la Terminale S : cours illustré, méthodes, plus de 300 exercices gradués et les sujets officiels du Bacc Série S 2021 à 2026. Conforme au programme officiel malgache. 105 000 Ar, livraison gratuite dans Tana ville.">
+<meta name="description" content="Manuel de mathématiques pour la Terminale S : cours illustré, méthodes, plus de 300 exercices gradués et les sujets officiels du Bacc Série S 2021 à 2026. Conforme au programme officiel malgache. 105 000 Ar, livraison gratuite à Antananarivo. Sujets du Bac 2021 à 2026 à télécharger.">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="fr_FR">
 <meta property="og:site_name" content="Le Repère">
 <meta property="og:title" content="Le Repère · Mathématiques Terminale S">
-<meta property="og:description" content="Manuel de mathématiques pour la Terminale S : cours illustré, méthodes, plus de 300 exercices gradués et les sujets officiels du Bacc Série S 2021 à 2026. Conforme au programme officiel malgache. 105 000 Ar, livraison gratuite dans Tana ville.">
+<meta property="og:description" content="Manuel de mathématiques pour la Terminale S : cours illustré, méthodes, plus de 300 exercices gradués et les sujets officiels du Bacc Série S 2021 à 2026. Conforme au programme officiel malgache. 105 000 Ar, livraison gratuite à Antananarivo. Sujets du Bac 2021 à 2026 à télécharger.">
 <meta property="og:url" content="https://amamiarilala-svg.github.io/le-repere/">
 <meta property="og:image" content="https://amamiarilala-svg.github.io/le-repere/assets/og.jpg">
 <meta property="og:image:width" content="1200">
@@ -250,6 +250,13 @@ dialog.lb img { display: block; max-width: 100%; max-height: 86vh; width: auto; 
 .meta b { color: var(--ink); font-weight: 600; }
 .years { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
 .year { border: 1px solid var(--rule); border-radius: 8px; padding: 14px 16px; background: var(--paper); }
+a.year { display: grid; gap: 2px; color: inherit; text-decoration: none; transition: border-color .15s ease, transform .15s ease; }
+a.year:hover { border-color: var(--ink); transform: translateY(-2px); }
+.year .dl { margin-top: 8px; font-weight: 600; font-size: .8125rem; color: var(--accent-ink); }
+.zip { display: inline-flex; align-items: center; gap: 8px; margin-top: 14px; padding: 10px 18px; border-radius: 999px; background: var(--ink); color: var(--paper); font-weight: 600; font-size: .9375rem; text-decoration: none; }
+.zip:hover { opacity: .9; }
+.dl-note { margin: 10px 0 0; font-size: .875rem; color: var(--ink-2); }
+@media (max-width: 480px) { .years { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 .year b { display: block; font-family: var(--f-display); font-weight: 400; font-size: var(--s2); font-variant-numeric: tabular-nums; }
 .year span { font-size: .8125rem; color: var(--ink-2); }
 .plus { margin-top: 22px; border-top: 2px solid var(--ink); padding-top: 18px; display: grid; gap: 14px; }
@@ -260,6 +267,9 @@ dialog.lb img { display: block; max-width: 100%; max-height: 86vh; width: auto; 
 
 /* ── Commander ───────────────────────────── */
 .ship { margin: 14px 0 0; font-size: .875rem; color: var(--band-ink-2); }
+.ship-dl { margin-top: 6px; }
+.ship-dl a { color: var(--band-ink); text-underline-offset: 3px; }
+.ship-dl::before { background: var(--band-ink-2) !important; }
 .ship::before { content: ""; display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--accent); margin-right: 8px; vertical-align: 1px; }
 .order-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 0; border: 2px solid var(--ink); border-radius: 12px; overflow: hidden; background: var(--paper); }
 @media (max-width: 820px) { .order-grid { grid-template-columns: minmax(0, 1fr); } }
@@ -311,7 +321,7 @@ footer.foot .wrap { display: flex; flex-wrap: wrap; justify-content: space-betwe
         <a href="#figure">Échauffement</a>
         <a href="#sommaire">Sommaire</a>
         <a href="#methode">Méthode</a>
-        <a href="#bac">Bac</a>
+        <a href="#bac">Sujets du Bac</a>
         <a href="#apercu">Feuilleter</a>
         <a class="nav-key" href="#commander">Commander</a>
       </nav>
@@ -329,7 +339,8 @@ footer.foot .wrap { display: flex; flex-wrap: wrap; justify-content: space-betwe
           <a class="btn btn-a" href="#commander">Commander · 105&#8239;000&nbsp;Ar</a>
           <a class="btn btn-b" href="#apercu">Feuilleter des pages</a>
         </div>
-        <p class="ship">Livraison gratuite dans Tana ville</p>
+        <p class="ship">Livraison gratuite à Antananarivo</p>
+        <p class="ship ship-dl"><a href="#bac">Sujets du Bac 2021 à 2026 à télécharger</a></p>
       </div>
       <div class="cover">
         <img src="assets/couverture.jpg" alt="Couverture du livre Le Repère, Mathématiques Terminale S, par Mamiarilala Razafimahefa" width="641" height="910">
@@ -799,7 +810,7 @@ footer.foot .wrap { display: flex; flex-wrap: wrap; justify-content: space-betwe
     <div class="head">
       <p class="label">Baccalauréat Série S</p>
       <h2>Préparer l'épreuve telle qu'elle est</h2>
-      <p>Les sujets officiels ont tous la même architecture depuis 2021. Le livre les transcrit intégralement et entraîne sur chacun des quatre blocs.</p>
+      <p>Les sujets officiels ont tous la même architecture depuis 2021. Le livre les transcrit intégralement et entraîne sur chacun des quatre blocs. Téléchargez-les ci-dessous.</p>
     </div>
 
     <div class="bac-grid">
@@ -819,15 +830,17 @@ footer.foot .wrap { display: flex; flex-wrap: wrap; justify-content: space-betwe
       </div>
 
       <div>
-        <p class="label" style="margin-bottom:12px">Sujets officiels transcrits</p>
+        <p class="label" style="margin-bottom:12px">Sujets officiels à télécharger</p>
         <div class="years">
-          <div class="year"><b>2021</b><span>Session officielle</span></div>
-          <div class="year"><b>2022</b><span>Session officielle</span></div>
-          <div class="year"><b>2023</b><span>Session officielle</span></div>
-          <div class="year"><b>2024</b><span>Session officielle</span></div>
-          <div class="year"><b>2025</b><span>Session officielle</span></div>
-          <div class="year"><b>2026</b><span>Session officielle</span></div>
+          <a class="year" href="sujets/bac-s-2021-mathematiques.pdf" download><b>2021</b><span>PDF · 5 pages · 224 Ko</span><span class="dl">Télécharger ↓</span></a>
+          <a class="year" href="sujets/bac-s-2022-mathematiques.pdf" download><b>2022</b><span>PDF · 4 pages · 225 Ko</span><span class="dl">Télécharger ↓</span></a>
+          <a class="year" href="sujets/bac-s-2023-mathematiques.pdf" download><b>2023</b><span>PDF · 4 pages · 220 Ko</span><span class="dl">Télécharger ↓</span></a>
+          <a class="year" href="sujets/bac-s-2024-mathematiques.pdf" download><b>2024</b><span>PDF · 4 pages · 224 Ko</span><span class="dl">Télécharger ↓</span></a>
+          <a class="year" href="sujets/bac-s-2025-mathematiques.pdf" download><b>2025</b><span>PDF · 4 pages · 219 Ko</span><span class="dl">Télécharger ↓</span></a>
+          <a class="year" href="sujets/bac-s-2026-mathematiques.pdf" download><b>2026</b><span>PDF · 4 pages · 222 Ko</span><span class="dl">Télécharger ↓</span></a>
         </div>
+        <a class="zip" href="sujets/bac-s-2021-2026-mathematiques.zip" download>Télécharger les 6 sujets (ZIP, 1,3 Mo)</a>
+        <p class="dl-note">Énoncés officiels transcrits, au format du livre (A5), sans corrigé.</p>
         <div class="plus">
           <div><span class="big">19</span><p><b>sujets types</b> complets dans le chapitre Entraînement, au format et au niveau de l'épreuve.</p></div>
           <div><span class="big">5+</span><p><b>sujets types par chapitre</b>, pour s'exercer dès qu'une notion est vue en classe.</p></div>
@@ -843,7 +856,7 @@ footer.foot .wrap { display: flex; flex-wrap: wrap; justify-content: space-betwe
     <div class="head">
       <p class="label">Commander</p>
       <h2>Recevez le livre chez vous</h2>
-      <p>Commandez par WhatsApp ou par téléphone. La livraison est gratuite dans Tana ville.</p>
+      <p>Commandez par WhatsApp ou par téléphone. La livraison est gratuite à Antananarivo.</p>
     </div>
     <div class="order-grid">
       <div class="ticket">
@@ -851,7 +864,7 @@ footer.foot .wrap { display: flex; flex-wrap: wrap; justify-content: space-betwe
         <p class="price">105&#8239;000<small>Ar</small></p>
         <p class="ticket-sub">380 pages : cours, exercices corrigés et sujets de BAC.</p>
         <ul>
-          <li><span><b>Livraison gratuite</b> dans Tana ville</span></li>
+          <li><span><b>Livraison gratuite</b> à Antananarivo</span></li>
           <li><span>Sujets officiels du Bacc 2021 à 2026 inclus</span></li>
           <li><span>Conforme au programme officiel malgache</span></li>
         </ul>
@@ -896,7 +909,7 @@ footer.foot .wrap { display: flex; flex-wrap: wrap; justify-content: space-betwe
 <footer class="foot">
   <div class="wrap">
     <span>© 2026 Mamiarilala Razafimahefa · Le Repère, Mathématiques Terminale S</span>
-    <span>Commandes : 034 86 068 86 (WhatsApp ou appel) · Livraison gratuite dans Tana ville</span>
+    <span>Commandes : 034 86 068 86 (WhatsApp ou appel) · Livraison gratuite à Antananarivo</span>
   </div>
 </footer>
 

@@ -1,0 +1,40 @@
+% ============================================================
+%   Sujet officiel du Bacc Série S, seul, pour téléchargement
+%   Le Repère — Mathématiques Terminale S
+%
+%   À compiler DEPUIS le dossier du livre (Livre_bac_S), qui
+%   fournit config/ et parties/annales/ ; l'année est passée
+%   en argument (voir outils/README.md) :
+%
+%   pdflatex -jobname=bac-2021 "\def\annee{2021}\input{<chemin>/outils/sujet_bac.tex}"
+% ============================================================
+\documentclass[11pt,a5paper,oneside,openany]{book}
+
+\input{config/packages}
+\input{config/environnements}
+\input{config/commandes}
+\input{config/style}
+
+\fancyhead[R]{\footnotesize\sffamily Bacc Série S --- Session \annee}
+\hypersetup{
+	pdftitle={Baccalauréat Série S \annee{} --- Mathématiques},
+	pdfauthor={Le Repère --- Mamiarilala Razafimahefa},
+	pdfsubject={Sujet officiel du Bacc Série S, session \annee}
+}
+
+\begin{document}
+% Même corps que dans le livre, où les annales sont composées en \small
+% (10 pt). En 11 pt, quelques formules débordent de la marge.
+\small
+
+\input{parties/annales/bac_\annee}
+
+\vfill
+\begin{center}
+	\footnotesize\color{gray}
+	Sujet officiel transcrit dans \textbf{Le Repère}, Mathématiques Terminale S
+	(Mamiarilala Razafimahefa).\\
+	amamiarilala-svg.github.io/le-repere
+\end{center}
+
+\end{document}
