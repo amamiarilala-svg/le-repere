@@ -3,7 +3,7 @@
 Site vitrine du manuel **Le Repère, Mathématiques Terminale S** (Bacc Série S, Madagascar),
 par Mamiarilala Razafimahefa.
 
-En ligne : https://lerepere.mg (l'ancienne adresse
+En ligne : https://lerepere-mada.com (l'ancienne adresse
 https://amamiarilala-svg.github.io/le-repere/ y redirige automatiquement).
 
 - `index.html` — la page (aucune dépendance à compiler ; polices Google Fonts).
@@ -13,10 +13,10 @@ https://amamiarilala-svg.github.io/le-repere/ y redirige automatiquement).
 - `CNAME` — nom de domaine du site pour GitHub Pages. Ne pas le supprimer : sans lui, le
   site repasse sur l'adresse github.io.
 
-## Domaine `lerepere.mg`
+## Domaine `lerepere-mada.com`
 
-Hébergement : GitHub Pages (branche `main`, racine). Zone DNS chez le bureau
-d'enregistrement du domaine :
+Hébergement : GitHub Pages (branche `main`, racine). Domaine acheté chez GoDaddy le
+2026-10-22 ; zone DNS à régler dans GoDaddy (Mes produits → DNS) :
 
 | Type  | Nom   | Valeur                                                            |
 |-------|-------|-------------------------------------------------------------------|
@@ -28,4 +28,4 @@ d'enregistrement du domaine :
 | TXT   | donné par GitHub (vérification du domaine, réglages du profil → Pages) | |
 
 Pas d'enregistrement « joker » (`*`). Dans le dépôt : Settings → Pages → *Custom domain*
-`lerepere.mg`, puis *Enforce HTTPS*.
+`lerepere-mada.com`, puis *Enforce HTTPS*.
