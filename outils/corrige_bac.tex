@@ -1,0 +1,47 @@
+% ============================================================
+%   Corrigé d'un sujet officiel du Bacc Série S, seul, pour
+%   téléchargement
+%   Le Repère — Mathématiques Terminale S
+%
+%   À compiler DEPUIS le dossier du livre (Livre_bac_S), qui
+%   fournit config/ et parties/annales/ ; l'année est passée
+%   en argument (voir outils/README.md) :
+%
+%   pdflatex -jobname=corrige-2026 "\def\annee{2026}\input{<chemin>/outils/corrige_bac.tex}"
+% ============================================================
+\documentclass[11pt,a5paper,oneside,openany]{book}
+
+\input{config/packages}
+\input{config/environnements}
+\input{config/commandes}
+\input{config/style}
+
+\fancyhead[R]{\footnotesize\sffamily Bacc Série S --- Corrigé de la session \annee}
+
+% Hors du livre, la pagination change : on évite qu'un titre d'exercice
+% ou de problème reste seul en bas de page.
+\let\exerciceLivre\exercice
+\renewcommand{\exercice}[1]{\Needspace{8\baselineskip}\exerciceLivre{#1}}
+\let\problemeLivre\probleme
+\renewcommand{\probleme}[1]{\Needspace{8\baselineskip}\problemeLivre{#1}}
+\hypersetup{
+	pdftitle={Baccalauréat Série S \annee{} --- Mathématiques --- Corrigé},
+	pdfauthor={Le Repère --- Mamiarilala Razafimahefa},
+	pdfsubject={Corrigé détaillé du sujet officiel du Bacc Série S, session \annee}
+}
+
+\begin{document}
+% Même corps que dans le livre (10 pt).
+\small
+
+\input{parties/annales/corrige_\annee}
+
+\vfill
+\begin{center}
+	\footnotesize\color{gray}
+	Corrigé extrait de \textbf{Le Repère}, Mathématiques Terminale S
+	(Mamiarilala Razafimahefa), qui corrige les six sujets 2021--2026.\\
+	amamiarilala-svg.github.io/le-repere
+\end{center}
+
+\end{document}
