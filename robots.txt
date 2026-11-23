@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /outils/
+
+Sitemap: https://lerepere-mada.com/sitemap.xml
