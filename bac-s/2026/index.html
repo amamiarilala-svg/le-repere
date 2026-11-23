@@ -184,6 +184,19 @@ h1, h2, h3 { font-family: var(--f-display); font-weight: 400; line-height: 1.12;
 .livre ul { padding-left: 1.2em; color: var(--band-ink-2); margin: 14px 0 0; }
 .livre .btn-a { background: var(--accent); color: var(--on-accent); }
 .couv img { display: block; border-radius: 3px 8px 8px 3px; box-shadow: 0 24px 48px -20px rgba(0,0,0,.7); transform: rotate(-2deg); }
+/* Bouton WhatsApp flottant, sur téléphone seulement. Collé au bas de l'écran pendant la lecture
+   du sujet et du corrigé (position sticky dans .lecture), il remonte avec la fin du corrigé, juste
+   avant l'encart du livre qui a son propre bouton. Sans JavaScript. */
+.wa-flottant { display: none; }
+.ico { flex: none; }
+/* Sur petit écran, « sur WhatsApp » n'est plus affiché (l'icône le dit) mais reste lu par les
+   lecteurs d'écran : le bouton tient sur une ligne. */
+@media (max-width: 480px) { .sur-wa { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; } }
+@media (max-width: 760px) {
+  .wa-flottant { display: flex; justify-content: flex-end; position: sticky; bottom: calc(14px + env(safe-area-inset-bottom, 0px)); z-index: 15; margin: 28px 0 0; pointer-events: none; }
+  .wa-flottant a { pointer-events: auto; display: inline-flex; align-items: center; gap: 8px; padding: 11px 18px 11px 14px; border-radius: 999px; background: #25d366; color: #0b2a17; font-weight: 700; font-size: .9375rem; text-decoration: none; box-shadow: 0 6px 20px -6px rgba(0,0,0,.45); }
+  .lecture + .livre { margin-top: 40px; }
+}
 .autres { margin-top: 64px; }
 .autres h2 { font-size: 1.9rem; margin-bottom: 18px; }
 .annees { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 12px; }
@@ -198,6 +211,7 @@ footer.foot a { color: var(--band-ink-2); }
 </style>
 </head>
 <body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="ico-wa" viewBox="0 0 24 24"><path d="M12 2.8a9.2 9.2 0 0 0-8 13.7L2.8 21.2l4.8-1.2A9.2 9.2 0 1 0 12 2.8z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M8.6 7.4h1.8l.9 2.3-1.1.9a6 6 0 0 0 3.2 3.2l.9-1.1 2.3.9v1.8c0 .6-.5 1-1.1 1A8 8 0 0 1 7.6 8.5c0-.6.4-1.1 1-1.1z" fill="currentColor"/></symbol></svg>
 
 <div class="band">
   <div class="topbar">
@@ -235,6 +249,7 @@ footer.foot a { color: var(--band-ink-2); }
 </div>
 
 <main class="wrap doc">
+  <div class="lecture">
   <section class="partie-doc" id="sujet">
     <p class="label">Énoncé</p>
     <h2>Sujet de maths du Bac S 2026</h2>
@@ -592,7 +607,7 @@ c-16-25.333-24-45-24-59z"/></svg></span></span></span></span><span class="vlist-
 
   <aside class="pub" aria-label="Le livre">
     <p>Les sujets <strong>2021 à 2025</strong> sont corrigés de la même façon dans le livre <em>Le Repère</em>, avec 22 sujets types pour s'entraîner.</p>
-    <a class="btn btn-c" href="/#commander">Commander · 55&#8239;000&nbsp;Ar</a>
+    <a class="btn btn-c" href="https://wa.me/261348606886?text=Bonjour%2C%20je%20souhaite%20commander%20le%20livre%20Le%20Rep%C3%A8re%2C%20Math%C3%A9matiques%20Terminale%20S%20(page%20Bac%20S%202026)." target="_blank" rel="noopener"><svg class="ico" width="20" height="20" aria-hidden="true"><use href="#ico-wa"/></svg><span>Commander<span class="sur-wa"> sur WhatsApp</span> · 55&#8239;000&nbsp;Ar</span></a>
   </aside>
 
   <section class="partie-doc" id="corrige">
@@ -1608,6 +1623,9 @@ c100.7 8.3 195.3 44 280 108 55.3 42 101.7 93 139 153l9 14c2.7-4 5.7-8.7 9-14
     </div>
   </section>
 
+  <p class="wa-flottant"><a href="https://wa.me/261348606886?text=Bonjour%2C%20je%20souhaite%20commander%20le%20livre%20Le%20Rep%C3%A8re%2C%20Math%C3%A9matiques%20Terminale%20S%20(page%20Bac%20S%202026)." target="_blank" rel="noopener" aria-label="Commander le livre sur WhatsApp"><svg class="ico" width="20" height="20" aria-hidden="true"><use href="#ico-wa"/></svg>Commander</a></p>
+  </div>
+
   <section class="livre" aria-labelledby="livre-titre">
     <div>
       <p class="label">Le livre</p>
@@ -1618,7 +1636,7 @@ c100.7 8.3 195.3 44 280 108 55.3 42 101.7 93 139 153l9 14c2.7-4 5.7-8.7 9-14
         <li>Commande par WhatsApp ou par téléphone : 034 86 068 86</li>
       </ul>
       <div class="cta">
-        <a class="btn btn-a" href="https://wa.me/261348606886?text=Bonjour%2C%20je%20souhaite%20commander%20le%20livre%20Le%20Rep%C3%A8re%2C%20Math%C3%A9matiques%20Terminale%20S%20(page%20Bac%20S%202026)." target="_blank" rel="noopener">Commander sur WhatsApp · 55&#8239;000&nbsp;Ar</a>
+        <a class="btn btn-a" href="https://wa.me/261348606886?text=Bonjour%2C%20je%20souhaite%20commander%20le%20livre%20Le%20Rep%C3%A8re%2C%20Math%C3%A9matiques%20Terminale%20S%20(page%20Bac%20S%202026)." target="_blank" rel="noopener"><svg class="ico" width="20" height="20" aria-hidden="true"><use href="#ico-wa"/></svg><span>Commander<span class="sur-wa"> sur WhatsApp</span> · 55&#8239;000&nbsp;Ar</span></a>
         <a class="btn btn-b" href="/">Découvrir le livre</a>
       </div>
     </div>

@@ -67,8 +67,13 @@ passer : compléter alors `page_bac.py`. Le modèle de page est
 `outils/modele_page_bac.html`.
 
 - **À relancer** si le sujet ou le corrigé change dans le livre, ou si le prix
-  change (constante `PRIX` en tête de `page_bac.py`, à garder identique à
-  `index.html`).
+  ou le numéro de commande change (constantes `PRIX` et `WHATSAPP` en tête de
+  `page_bac.py`, à garder identiques à `index.html`).
+- **Commande** : trois boutons WhatsApp par page (encart entre sujet et
+  corrigé, bouton vert flottant sur téléphone, encart du livre en bas). Le
+  message pré-rempli finit par « (page Bac S AAAA) ». Le bouton flottant est
+  en `position: sticky` dans `.lecture`, sans JavaScript : il disparaît avant
+  l'encart du livre.
 - **Nouvelle page** : ajouter son adresse à `sitemap.xml`, un lien depuis la
   section « Sujets du Bac » de `index.html`, et un texte alternatif pour chaque
   figure dans `FIG_ALT` (`page_bac.py`). Seul le corrigé 2026 est publié
