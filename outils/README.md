@@ -79,3 +79,21 @@ passer : compléter alors `page_bac.py`. Le modèle de page est
   figure dans `FIG_ALT` (`page_bac.py`). Seul le corrigé 2026 est publié
   (`CORRIGES_PUBLIES`) ; une page sans corrigé demandera d'adapter le modèle.
 - Les fichiers de travail vont dans `build-pages/` (ignoré par git).
+
+## Refaire l'image de partage (`assets/og.jpg`)
+
+`outils/og.tex` dessine l'image 1200×630 (fond brique, titre, prix, couverture du
+livre). Elle reprend `couverture/couverture-ecran.pdf` du dépôt du livre : à refaire
+si la couverture, le prix ou le numéro change. LuaLaTeX ne retrouve la police Zilla
+Slab que si elle est dans le dossier de compilation :
+
+```bash
+mkdir -p build-og
+cp outils/og.tex ../Livre_bac_S/couverture/polices/ZillaSlab-Bold.ttf build-og/
+cd build-og && lualatex og.tex && lualatex og.tex && pdftoppm -r 72 -png -singlefile og.pdf og && cd ..
+python -I -c "from PIL import Image; Image.open('build-og/og.png').convert('RGB').save('assets/og.jpg', quality=86, optimize=True)"
+rm -rf build-og
+```
+
+Deux passes sont nécessaires (dessin en surimpression). Après publication, repasser
+l'adresse dans le débogueur de partage de Facebook pour rafraîchir l'aperçu.

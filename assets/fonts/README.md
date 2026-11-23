@@ -7,9 +7,13 @@ l'affichage). Les règles `@font-face` correspondantes sont écrites en tête de
 
 | Fichier | Police | Graisses | Sous-ensemble |
 |---|---|---|---|
-| `archivo-latin.woff2`, `archivo-latin-ext.woff2` | Archivo (texte) | 400 à 700, variable | latin, latin étendu |
-| `young-serif-latin.woff2`, `young-serif-latin-ext.woff2` | Young Serif (titres) | 400 | latin, latin étendu |
+| `fira-sans-400-*.woff2`, `fira-sans-400i-*.woff2`, `fira-sans-600-*.woff2`, `fira-sans-700-*.woff2` | Fira Sans (texte) | 400, 400 italique, 600, 700 | latin, latin étendu |
+| `zilla-slab-500-*.woff2`, `zilla-slab-700-*.woff2` | Zilla Slab (titres, grands chiffres) | 500, 700 | latin, latin étendu |
 | `stix-two-text-latin.woff2`, `stix-two-text-latin-ext.woff2`, `stix-two-text-greek.woff2` | STIX Two Text italique (formules) | 400 à 600, variable | latin, latin étendu, grec |
+
+Charte « Hautes Terres » du 2026-11-23 : Zilla Slab et Fira Sans remplacent Young Serif et
+Archivo. Zilla Slab dessine des chiffres elzéviriens par défaut ; le site force les chiffres
+alignés (`font-variant-numeric: lining-nums`).
 
 Les trois polices sont distribuées sous la licence SIL Open Font License 1.1
 (https://openfontlicense.org), qui autorise leur redistribution avec un site web.

@@ -1,0 +1,52 @@
+% =====================================================================
+%  Image de partage Facebook / WhatsApp du site (assets/og.jpg, 1200 x 630)
+%  Charte « Hautes Terres » (2026-11-23). Voir outils/README.md.
+%  Compiler avec LuaLaTeX dans un dossier de travail qui contient aussi
+%  ZillaSlab-Bold.ttf (copié depuis Livre_bac_S/couverture/polices/ ;
+%  procédure complète dans outils/README.md), puis
+%    pdftoppm -r 72 -png -singlefile og.pdf og   (1 bp = 1 px à 72 dpi)
+%  et convertir og.png en JPEG. La couverture vient du dépôt du livre.
+% =====================================================================
+\documentclass{article}
+\usepackage[paperwidth=1200bp, paperheight=630bp, margin=0pt]{geometry}
+\usepackage{fontspec}
+\usepackage{graphicx}
+\usepackage{tikz}
+\pagestyle{empty}
+
+\newcommand\livre{C:/Users/MAMIARILALA/Desktop/Livre_bac_S}
+\newfontfamily\zilla{ZillaSlab-Bold.ttf}[Numbers=Lining]
+\newfontfamily\fira{FiraSans-Regular.otf}
+\newfontfamily\firasb{FiraSans-SemiBold.otf}
+
+\definecolor{laterite}{HTML}{A9432A}
+\definecolor{brique}  {HTML}{6B2A1C}
+\definecolor{riz}     {HTML}{B7D36B}
+\definecolor{chaux}   {HTML}{F4F5EC}
+\definecolor{rose}    {HTML}{F8E4DA}
+
+\newcommand\taille[1]{\fontsize{#1bp}{#1bp}\selectfont}
+
+\begin{document}
+\noindent\begin{tikzpicture}[remember picture, overlay, x=1bp, y=-1bp,
+	shift={(current page.north west)}, txt/.style={inner sep=0pt, outer sep=0pt, anchor=base west}]
+	\fill[brique] (-2,-2) rectangle (1202,632);
+	% Quadrillage discret, comme le papier du site
+	\foreach \x in {0,24,...,1200} \draw[laterite, opacity=.35, line width=.6bp] (\x,0) -- (\x,630);
+	\foreach \y in {6,30,...,630} \draw[laterite, opacity=.35, line width=.6bp] (0,\y) -- (1200,\y);
+
+	\node[txt, text=riz]   at (80,118) {\firasb\taille{22}\addfontfeature{LetterSpace=22}MATHÉMATIQUES · TERMINALE S};
+	\node[txt, text=chaux] at (74,236) {\zilla\taille{120}Le Repère};
+	\node[txt, text=chaux] at (80,300) {\fira\taille{30}Cours · Exercices · Sujets du Bac};
+	\node[txt, text=rose]  at (80,344) {\fira\taille{28}Sujets officiels 2021 à 2026, tous corrigés};
+	\draw[rose, opacity=.5, line width=1.5bp] (80,388) -- (600,388);
+	\node[txt, text=riz]   at (78,474) {\zilla\taille{64}55\,000 Ar};
+	\node[txt, text=chaux] at (80,540) {\fira\taille{26}Livraison gratuite à Antananarivo · 034 86 068 86};
+
+	% Couverture, posée sur une ombre vert rizière
+	\begin{scope}[shift={(912,315)}, rotate=-2.5]
+		\fill[riz] (-178,-247) rectangle (194,267);
+		\node[inner sep=0pt] at (0,0) {\includegraphics[width=356bp]{\livre/couverture/couverture-ecran.pdf}};
+	\end{scope}
+\end{tikzpicture}
+\end{document}

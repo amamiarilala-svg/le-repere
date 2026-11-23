@@ -10,10 +10,19 @@ https://amamiarilala-svg.github.io/le-repere/ y redirige automatiquement).
   données structurées (bloc JSON-LD : livre, auteur, **prix**) : à mettre à jour avec le reste
   de la page si le prix ou le nombre de pages change.
 - `assets/fonts/` — polices servies par le site (voir `assets/fonts/README.md`).
+- **Charte graphique « Hautes Terres »** (depuis le 2026-11-23) : latérite `#a9432a`, vert rizière
+  `#b7d36b`, brique `#6b2a1c`, blanc chaux `#f4f5ec`, vert forêt `#2f5a2e` ; titres en Zilla Slab,
+  texte en Fira Sans, formules en STIX Two. Les couleurs sont des variables CSS en tête de
+  `index.html`, `404.html` et `outils/modele_page_bac.html` : les changer aux trois endroits.
 - `assets/couverture.jpg` + `assets/couverture.webp`, `assets/pages/` — couverture et pages
-  d'aperçu. Changer les deux fichiers de couverture ensemble.
-- `assets/og.jpg` — image 1200×630 affichée quand le lien est partagé sur Facebook.
-- `favicon.svg`, `favicon.ico`, `icon-192.png`, `apple-touch-icon.png` — icônes du site.
+  d'aperçu. Changer les deux fichiers de couverture ensemble. La couverture est vectorielle,
+  dessinée en TikZ dans le dépôt du livre (`couverture/`) : la rendre depuis
+  `couverture/couverture-ecran.pdf` (pdftoppm -r 600, puis réduction LANCZOS en 700×994,
+  JPEG qualité 84, WebP qualité 80).
+- `assets/og.jpg` — image 1200×630 affichée quand le lien est partagé sur Facebook
+  (source : `outils/og.tex`, voir `outils/README.md`).
+- `favicon.svg`, `favicon.ico`, `icon-192.png`, `apple-touch-icon.png` — icônes du site : carré
+  latérite, coin de repère blanc chaux, point vert rizière (dessin de `favicon.svg`, repère 30×30).
 - `robots.txt`, `sitemap.xml` — pour les moteurs de recherche. Ajouter toute nouvelle page ou
   tout nouveau PDF au sitemap (avec sa date `lastmod`).
 - `404.html` — page affichée pour une adresse inconnue (chemins absolus obligatoires).
