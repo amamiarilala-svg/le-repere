@@ -18,6 +18,8 @@ https://amamiarilala-svg.github.io/le-repere/ y redirige automatiquement).
   tout nouveau PDF au sitemap (avec sa date `lastmod`).
 - `404.html` — page affichée pour une adresse inconnue (chemins absolus obligatoires).
 - `sujets/` — sujets du Bac 2021–2026 et corrigé 2026 à télécharger (voir `outils/README.md`).
+- `bac-s/2026/` — sujet et corrigé 2026 en ligne (page générée par `outils/page_bac.py`,
+  ne pas la modifier à la main) ; `assets/katex/` — feuille de style et polices des formules.
 - `CNAME` — nom de domaine du site pour GitHub Pages. Ne pas le supprimer : sans lui, le
   site repasse sur l'adresse github.io.
 

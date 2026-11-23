@@ -41,3 +41,36 @@ mettre à jour le nombre de pages et la taille (en Ko) dans `index.html`, et
 supprimer `build-sujets/`. `corrige_bac.tex` protège les titres d'exercice et de
 problème d'un saut de page juste après eux ; vérifier quand même le rendu, car la
 pagination diffère de celle du livre.
+
+## Générer une page « sujet et corrigé » en ligne (`bac-s/AAAA/`)
+
+`outils/page_bac.py` convertit le sujet (`bac_AAAA.tex`) et, s'il est publié, le
+corrigé (`corrige_AAAA.tex`) du livre en une page web : texte en HTML, formules
+dessinées à l'avance par KaTeX (aucun JavaScript dans la page), figures TikZ en SVG.
+
+Une seule fois, installer KaTeX (version figée dans `outils/package.json`) :
+
+```bash
+cd outils && npm install --ignore-scripts
+```
+
+Puis, depuis le dossier du site :
+
+```bash
+python -I outils/page_bac.py 2026
+```
+
+Le script écrit `bac-s/AAAA/index.html` et `bac-s/AAAA/figure-N.svg`, et met à
+jour `assets/katex/` (feuille de style et polices WOFF2 de KaTeX). Il s'arrête
+sur toute commande LaTeX qu'il ne sait pas convertir plutôt que de la laisser
+passer : compléter alors `page_bac.py`. Le modèle de page est
+`outils/modele_page_bac.html`.
+
+- **À relancer** si le sujet ou le corrigé change dans le livre, ou si le prix
+  change (constante `PRIX` en tête de `page_bac.py`, à garder identique à
+  `index.html`).
+- **Nouvelle page** : ajouter son adresse à `sitemap.xml`, un lien depuis la
+  section « Sujets du Bac » de `index.html`, et un texte alternatif pour chaque
+  figure dans `FIG_ALT` (`page_bac.py`). Seul le corrigé 2026 est publié
+  (`CORRIGES_PUBLIES`) ; une page sans corrigé demandera d'adapter le modèle.
+- Les fichiers de travail vont dans `build-pages/` (ignoré par git).

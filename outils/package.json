@@ -1,0 +1,8 @@
+{
+  "name": "le-repere-outils",
+  "private": true,
+  "description": "Outils de génération du site Le Repère (rendu des formules avec KaTeX).",
+  "dependencies": {
+    "katex": "0.19.1"
+  }
+}
