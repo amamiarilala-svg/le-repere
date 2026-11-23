@@ -20,8 +20,8 @@
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="/icon-192.png" type="image/png" sizes="192x192">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<link rel="preload" href="/assets/fonts/archivo-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="/assets/fonts/young-serif-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/fira-sans-400-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/zilla-slab-700-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/assets/katex/katex.min.css">
 <script type="application/ld+json">
 {
@@ -59,39 +59,48 @@
 </script>
 <style>
 /* Polices auto-hébergées (voir /assets/fonts/README.md). */
-@font-face { font-family: 'Archivo'; font-style: normal; font-weight: 400 700; font-display: swap; src: url(/assets/fonts/archivo-latin.woff2) format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
-@font-face { font-family: 'Archivo'; font-style: normal; font-weight: 400 700; font-display: swap; src: url(/assets/fonts/archivo-latin-ext.woff2) format('woff2'); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
-@font-face { font-family: 'Young Serif'; font-style: normal; font-weight: 400; font-display: swap; src: url(/assets/fonts/young-serif-latin.woff2) format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
-@font-face { font-family: 'Young Serif'; font-style: normal; font-weight: 400; font-display: swap; src: url(/assets/fonts/young-serif-latin-ext.woff2) format('woff2'); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+@font-face { font-family: 'Zilla Slab'; font-style: normal; font-weight: 500; font-display: swap; src: url(/assets/fonts/zilla-slab-500-latin-ext.woff2) format('woff2'); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+@font-face { font-family: 'Zilla Slab'; font-style: normal; font-weight: 500; font-display: swap; src: url(/assets/fonts/zilla-slab-500-latin.woff2) format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: 'Zilla Slab'; font-style: normal; font-weight: 700; font-display: swap; src: url(/assets/fonts/zilla-slab-700-latin-ext.woff2) format('woff2'); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+@font-face { font-family: 'Zilla Slab'; font-style: normal; font-weight: 700; font-display: swap; src: url(/assets/fonts/zilla-slab-700-latin.woff2) format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: 'Fira Sans'; font-style: normal; font-weight: 400; font-display: swap; src: url(/assets/fonts/fira-sans-400-latin-ext.woff2) format('woff2'); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+@font-face { font-family: 'Fira Sans'; font-style: normal; font-weight: 400; font-display: swap; src: url(/assets/fonts/fira-sans-400-latin.woff2) format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: 'Fira Sans'; font-style: italic; font-weight: 400; font-display: swap; src: url(/assets/fonts/fira-sans-400i-latin-ext.woff2) format('woff2'); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+@font-face { font-family: 'Fira Sans'; font-style: italic; font-weight: 400; font-display: swap; src: url(/assets/fonts/fira-sans-400i-latin.woff2) format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: 'Fira Sans'; font-style: normal; font-weight: 600; font-display: swap; src: url(/assets/fonts/fira-sans-600-latin-ext.woff2) format('woff2'); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+@font-face { font-family: 'Fira Sans'; font-style: normal; font-weight: 600; font-display: swap; src: url(/assets/fonts/fira-sans-600-latin.woff2) format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: 'Fira Sans'; font-style: normal; font-weight: 700; font-display: swap; src: url(/assets/fonts/fira-sans-700-latin-ext.woff2) format('woff2'); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+@font-face { font-family: 'Fira Sans'; font-style: normal; font-weight: 700; font-display: swap; src: url(/assets/fonts/fira-sans-700-latin.woff2) format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
 
 :root {
-  --paper: #fafbf8; --paper-2: #eef1f5; --ink: #121a2b; --ink-2: #4a5366; --rule: #d8dde5;
-  --accent: #a1daf4; --accent-ink: #1757a8; --accent-wash: #e2f2fb; --on-accent: #0f1a2e;
-  --band: #14223d; --band-ink: #f7f9fb; --band-ink-2: #a5b1c6; --good: #1f7a4a;
-  --f-display: "Young Serif", "Iowan Old Style", Georgia, serif;
-  --f-body: "Archivo", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  --paper: #f4f5ec; --paper-2: #e8eadc; --ink: #1e1b16; --ink-2: #57514a; --rule: #d6d7c8;
+  --accent: #b7d36b; --accent-ink: #a9432a; --accent-wash: #e6edcb; --on-accent: #1e1b16;
+  --band: #a9432a; --band-deep: #6b2a1c; --band-ink: #f4f5ec; --band-ink-2: #f8e4da; --band-accent: #e3f0b8; --good: #2e6b3a;
+  --f-display: "Zilla Slab", Rockwell, "Roboto Slab", Georgia, serif;
+  --f-body: "Fira Sans", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
   --wrap: 1120px; --texte: 46rem;
 }
 @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
-  --paper: #0e1524; --paper-2: #152036; --ink: #eef2f7; --ink-2: #a3adbf; --rule: #26324a;
-  --accent-ink: #8ccff1; --accent-wash: #17304a; --band: #0a1120; --band-ink: #f2f5f9; --band-ink-2: #95a2b8; --good: #5fc68f;
+  --paper: #1a1612; --paper-2: #241e19; --ink: #f1eee6; --ink-2: #b8afa3; --rule: #3b3129;
+  --accent-ink: #ee9a7e; --accent-wash: #2a3020; --band: #8a3622; --band-deep: #4a1d13; --band-ink: #f4f5ec; --band-ink-2: #f6ddd2; --band-accent: #e3f0b8; --good: #8fcb86;
   color-scheme: dark;
 } }
 :root[data-theme="dark"] {
-  --paper: #0e1524; --paper-2: #152036; --ink: #eef2f7; --ink-2: #a3adbf; --rule: #26324a;
-  --accent-ink: #8ccff1; --accent-wash: #17304a; --band: #0a1120; --band-ink: #f2f5f9; --band-ink-2: #95a2b8; --good: #5fc68f;
+  --paper: #1a1612; --paper-2: #241e19; --ink: #f1eee6; --ink-2: #b8afa3; --rule: #3b3129;
+  --accent-ink: #ee9a7e; --accent-wash: #2a3020; --band: #8a3622; --band-deep: #4a1d13; --band-ink: #f4f5ec; --band-ink-2: #f6ddd2; --band-accent: #e3f0b8; --good: #8fcb86;
   color-scheme: dark;
 }
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; scroll-padding-top: 76px; }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; } }
-body { margin: 0; background: var(--paper); color: var(--ink); font: 400 1rem/1.65 var(--f-body); -webkit-font-smoothing: antialiased; }
+body { margin: 0; background: var(--paper); color: var(--ink); font: 400 1rem/1.65 var(--f-body); -webkit-font-smoothing: antialiased; font-variant-numeric: lining-nums; }
 img { max-width: 100%; height: auto; }
 picture { display: block; }
 a { color: var(--accent-ink); }
-:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+:focus-visible { outline: 2px solid var(--accent-ink); outline-offset: 3px; border-radius: 4px; }
+.band :focus-visible, .livre :focus-visible, footer.foot :focus-visible { outline-color: var(--band-ink); }
 .wrap { max-width: var(--wrap); margin-inline: auto; padding-inline: 20px; }
-h1, h2, h3 { font-family: var(--f-display); font-weight: 400; line-height: 1.12; text-wrap: balance; margin: 0; }
+h1, h2, h3 { font-family: var(--f-display); font-weight: 700; line-height: 1.12; text-wrap: balance; margin: 0; }
 .label { font-size: .8125rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--ink-2); margin: 0 0 10px; }
 
 /* ── Bandeau ── */
@@ -102,7 +111,7 @@ h1, h2, h3 { font-family: var(--f-display); font-weight: 400; line-height: 1.12;
 .nav { display: flex; gap: 22px; margin-left: auto; align-items: center; }
 .nav a { color: var(--band-ink-2); text-decoration: none; font-size: .9375rem; font-weight: 500; }
 .nav a:hover { color: var(--band-ink); }
-.nav .nav-key { color: var(--band); background: var(--accent); padding: 6px 14px; border-radius: 999px; }
+.nav .nav-key { color: var(--on-accent); background: var(--accent); padding: 6px 14px; border-radius: 999px; }
 @media (max-width: 760px) { .nav a:not(.nav-key) { display: none; } }
 .hero .wrap { padding-block: 34px 52px; }
 .ariane { font-size: .875rem; color: var(--band-ink-2); margin-bottom: 26px; }
@@ -121,7 +130,7 @@ h1, h2, h3 { font-family: var(--f-display); font-weight: 400; line-height: 1.12;
 .btn-b { color: var(--band-ink); border: 1px solid rgba(255,255,255,.28); }
 .btn-b:hover { background: rgba(255,255,255,.07); }
 .dl { margin: 22px 0 0; font-size: .9375rem; color: var(--band-ink-2); }
-.dl a { color: var(--accent); }
+.dl a { color: var(--band-accent); }
 
 /* ── Document ── */
 .doc { padding-block: 56px 72px; }
@@ -176,7 +185,7 @@ h1, h2, h3 { font-family: var(--f-display); font-weight: 400; line-height: 1.12;
 .pub { max-width: var(--texte); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 14px 24px; padding: 18px 22px; border-radius: 12px; background: var(--accent-wash); }
 .pub p { margin: 0; max-width: 30em; }
 .btn-c { background: var(--ink); color: var(--paper); }
-.livre { margin-top: 72px; display: grid; grid-template-columns: minmax(0, 1fr) 220px; gap: 40px; align-items: center; padding: 36px; border-radius: 16px; background: var(--band); color: var(--band-ink); }
+.livre { margin-top: 72px; display: grid; grid-template-columns: minmax(0, 1fr) 220px; gap: 40px; align-items: center; padding: 36px; border-radius: 16px; background: var(--band-deep); color: var(--band-ink); }
 @media (max-width: 760px) { .livre { grid-template-columns: minmax(0, 1fr); padding: 28px 22px; } .livre .couv { max-width: 180px; } }
 .livre h2 { font-size: clamp(1.8rem, 4vw, 2.4rem); }
 .livre .label { color: var(--band-ink-2); }
@@ -205,7 +214,7 @@ h1, h2, h3 { font-family: var(--f-display); font-weight: 400; line-height: 1.12;
 .annee span { font-size: .875rem; color: var(--ink-2); }
 .annee:hover { border-color: var(--accent-ink); }
 .autres .retour { margin-top: 16px; }
-footer.foot { background: var(--band); color: var(--band-ink-2); border-top: 1px solid rgba(255,255,255,.08); font-size: .875rem; }
+footer.foot { background: var(--band-deep); color: var(--band-ink-2); border-top: 1px solid rgba(255,255,255,.08); font-size: .875rem; }
 footer.foot .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px 24px; padding-block: 22px; }
 footer.foot a { color: var(--band-ink-2); }
 </style>
@@ -217,7 +226,7 @@ footer.foot a { color: var(--band-ink-2); }
   <div class="topbar">
     <div class="wrap">
       <a class="brand" href="/" aria-label="Le Repère, accueil">
-        <svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><rect x=".5" y=".5" width="29" height="29" rx="5" fill="#f7f9fb"/><path d="M10 6.5v16h13.5" fill="none" stroke="#14223d" stroke-width="3" stroke-linecap="square"/><circle cx="19" cy="11" r="2.2" fill="#1757a8"/></svg>
+        <svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><rect x=".5" y=".5" width="29" height="29" rx="1" fill="#f4f5ec"/><path d="M10 6v15.5h14" fill="none" stroke="#a9432a" stroke-width="3.4"/><circle cx="10" cy="21.5" r="2.9" fill="#2f5a2e"/></svg>
         Le Repère
       </a>
       <nav class="nav" aria-label="Navigation">
