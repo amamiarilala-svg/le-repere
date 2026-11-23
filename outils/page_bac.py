@@ -26,6 +26,10 @@ LIVRE = Path(os.environ.get("LIVRE_BAC_S", "C:/Users/MAMIARILALA/Desktop/Livre_b
 ANNEES = range(2021, 2027)
 CORRIGES_PUBLIES = {2026}  # les autres corrigés restent réservés au livre
 PRIX = "55&#8239;000&nbsp;Ar"  # à garder identique à index.html
+# Lien de commande (3 boutons par page). Le message pré-rempli cite la page, pour savoir d'où vient
+# chaque commande reçue sur WhatsApp.
+WHATSAPP = ("https://wa.me/261348606886?text=Bonjour%2C%20je%20souhaite%20commander%20le%20livre%20"
+            "Le%20Rep%C3%A8re%2C%20Math%C3%A9matiques%20Terminale%20S%20(page%20Bac%20S%20{annee}).")
 
 MACROS = {
     "\\N": "\\mathbb{N}", "\\Z": "\\mathbb{Z}", "\\Q": "\\mathbb{Q}", "\\R": "\\mathbb{R}",
@@ -315,6 +319,7 @@ def main():
         "SOMMAIRE_CORRIGE": " · ".join(f'<a href="#{i}">{n}</a>' for i, n in corrige.titres) if corrige else "",
         "BAREME": bareme,
         "PRIX": PRIX,
+        "WHATSAPP": WHATSAPP.format(annee=annee),
         "PDF_SUJET": pdf_sujet.name,
         "PDF_SUJET_KO": taille_ko(pdf_sujet),
         "PDF_CORRIGE": pdf_corrige.name if corrige else "",
