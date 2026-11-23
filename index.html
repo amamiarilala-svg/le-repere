@@ -313,6 +313,10 @@ a.year:hover { border-color: var(--ink); transform: translateY(-2px); }
 .dl-btns { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 14px; }
 .dl-btns .zip { margin-top: 0; }
 .zip-corrige { background: var(--accent); color: #14223d; }
+.en-ligne { display: flex; flex-direction: column; gap: 2px; margin-top: 14px; padding: 14px 18px; border: 1.5px solid var(--accent-ink); border-radius: 12px; background: var(--accent-wash); color: var(--ink); text-decoration: none; }
+.en-ligne b { font-family: var(--f-display); font-weight: 400; font-size: var(--s1); color: var(--accent-ink); }
+.en-ligne span { font-size: .875rem; color: var(--ink-2); }
+.en-ligne:hover b { text-decoration: underline; text-underline-offset: 3px; }
 .dl-note { margin: 10px 0 0; font-size: .875rem; color: var(--ink-2); }
 @media (max-width: 480px) { .years { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 .year b { display: block; font-family: var(--f-display); font-weight: 400; font-size: var(--s2); font-variant-numeric: tabular-nums; }
@@ -890,6 +894,7 @@ footer.foot .wrap { display: flex; flex-wrap: wrap; justify-content: space-betwe
           <a class="year" href="sujets/bac-s-2025-mathematiques.pdf" download><b>2025</b><span>PDF · 4 pages · 219 Ko</span><span class="dl">Télécharger ↓</span></a>
           <a class="year" href="sujets/bac-s-2026-mathematiques.pdf" download><b>2026</b><span>PDF · 4 pages · 222 Ko</span><span class="dl">Télécharger ↓</span></a>
         </div>
+        <a class="en-ligne" href="bac-s/2026/"><b>Bac S 2026 : sujet et corrigé en ligne</b><span>L'énoncé complet et le corrigé question par question, à lire directement sur la page →</span></a>
         <div class="dl-btns">
           <a class="zip" href="sujets/bac-s-2021-2026-mathematiques.zip" download>Télécharger les 6 sujets (ZIP, 1,3 Mo)</a>
           <a class="zip zip-corrige" href="sujets/bac-s-2026-mathematiques-corrige.pdf" download>Corrigé détaillé 2026 (PDF, 284 Ko)</a>
